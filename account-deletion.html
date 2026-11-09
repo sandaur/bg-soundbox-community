@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion — Board Game Soundbox</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --fg: #1a1a1a;
+            --muted: #555;
+            --accent: #2563eb;
+            --border: #e5e7eb;
+            --deleted: #dc2626;
+            --kept: #16a34a;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #111;
+                --fg: #e5e5e5;
+                --muted: #999;
+                --accent: #60a5fa;
+                --border: #333;
+                --deleted: #f87171;
+                --kept: #4ade80;
+            }
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+        .subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.25rem; }
+        h3 { font-size: 1.05rem; margin-top: 1.25rem; margin-bottom: 0.4rem; }
+        p, ul, ol { margin-bottom: 1rem; }
+        ul, ol { padding-left: 1.5rem; }
+        li { margin-bottom: 0.35rem; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .deleted { color: var(--deleted); font-weight: 600; }
+        .kept { color: var(--kept); font-weight: 600; }
+        .steps { background: var(--border); border-radius: 8px; padding: 1rem 1rem 1rem 1.5rem; margin-bottom: 1rem; }
+        @media (prefers-color-scheme: dark) { .steps { background: #1a1a1a; } }
+        .steps ol { margin-bottom: 0; }
+        .contact { margin-top: 2rem; padding: 1rem; background: var(--border); border-radius: 8px; }
+        @media (prefers-color-scheme: dark) { .contact { background: #1a1a1a; } }
+        .lang-toggle { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+        .lang-toggle button {
+            padding: 0.4rem 1rem; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg); color: var(--fg); cursor: pointer; font-size: 0.9rem;
+        }
+        .lang-toggle button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .lang-toggle button:hover { opacity: 0.85; }
+        .lang-section { display: none; }
+        .lang-section.active { display: block; }
+        .back { display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<a class="back" href="index.html">&larr; Privacy Policy</a>
+
+<h1 id="title-en">Account Deletion</h1>
+<p class="subtitle">Board Game Soundbox</p>
+
+<div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+    <button id="btn-es" onclick="setLang('es')">Espa&ntilde;ol</button>
+</div>
+
+<!-- ─── ENGLISH ─── -->
+<div id="lang-en" class="lang-section active">
+
+<h2>How to delete your account</h2>
+<p>You can delete your account entirely from within the app. No email or support request is needed.</p>
+<div class="steps">
+    <ol>
+        <li>Open the app and go to the <strong>Me</strong> tab.</li>
+        <li>Tap <strong>Settings</strong> (gear icon).</li>
+        <li>Under <strong>Account</strong>, tap <strong>Delete account</strong>.</li>
+        <li>Enter your password to confirm.</li>
+        <li>Your account is deleted immediately.</li>
+    </ol>
+</div>
+
+<h2>What is deleted</h2>
+<p>When you delete your account, the following data is <span class="deleted">permanently removed</span> from our servers:</p>
+<ul>
+    <li><span class="deleted">Your account</span> &mdash; email, display name, and authentication credentials.</li>
+    <li><span class="deleted">Your display name reservation</span> &mdash; the name is released so others can use it.</li>
+    <li><span class="deleted">Published bundles</span> &mdash; every sound bundle you shared in the Community, including their descriptions, tags, and sound configurations.</li>
+    <li><span class="deleted">Published mixes</span> &mdash; every mix you shared in the Community.</li>
+    <li><span class="deleted">Comments</span> &mdash; all comments you posted on other people's bundles.</li>
+    <li><span class="deleted">Ratings</span> &mdash; all star ratings you gave. The average ratings on affected bundles are recalculated.</li>
+    <li><span class="deleted">Adds</span> &mdash; your "add" records. The add counts on affected bundles are updated.</li>
+    <li><span class="deleted">Likes</span> &mdash; your "helpful" marks on comments. The like counts are updated.</li>
+</ul>
+<p>This deletion is <strong>permanent and cannot be undone</strong>.</p>
+
+<h2>What is kept</h2>
+<p>The following data is <span class="kept">not affected</span> by account deletion:</p>
+<ul>
+    <li><span class="kept">Local data on your phone</span> &mdash; your sound bundles, mixes, workbench, and app settings remain on your device. They do not depend on an account.</li>
+    <li><span class="kept">Bundles others added</span> &mdash; if another user added one of your bundles to their collection before you deleted your account, their local copy remains theirs.</li>
+</ul>
+
+<h2>Alternative: sign out</h2>
+<p>If you just want to stop using the Community features without losing your published content, you can sign out instead. Go to <strong>Me &rarr; Settings &rarr; Account &rarr; Sign out</strong>. You can sign back in at any time.</p>
+
+<h2>Contact</h2>
+<div class="contact">
+    <p>If you are unable to delete your account from the app (for example, you forgot your password and cannot reset it), contact us and we will delete it for you:</p>
+    <p><strong>Email:</strong> <a href="mailto:sandaur.support@gmail.com">sandaur.support@gmail.com</a></p>
+</div>
+
+</div>
+
+<!-- ─── SPANISH ─── -->
+<div id="lang-es" class="lang-section">
+
+<h2>C&oacute;mo eliminar tu cuenta</h2>
+<p>Puedes eliminar tu cuenta completamente desde la aplicaci&oacute;n. No necesitas enviar un correo ni contactar a soporte.</p>
+<div class="steps">
+    <ol>
+        <li>Abre la app y ve a la pesta&ntilde;a <strong>Yo</strong>.</li>
+        <li>Toca <strong>Configuraci&oacute;n</strong> (icono de engranaje).</li>
+        <li>En <strong>Cuenta</strong>, toca <strong>Eliminar cuenta</strong>.</li>
+        <li>Ingresa tu contrase&ntilde;a para confirmar.</li>
+        <li>Tu cuenta se elimina de inmediato.</li>
+    </ol>
+</div>
+
+<h2>Qu&eacute; se elimina</h2>
+<p>Cuando eliminas tu cuenta, los siguientes datos se <span class="deleted">eliminan permanentemente</span> de nuestros servidores:</p>
+<ul>
+    <li><span class="deleted">Tu cuenta</span> &mdash; correo electr&oacute;nico, nombre visible y credenciales de autenticaci&oacute;n.</li>
+    <li><span class="deleted">Tu reserva de nombre</span> &mdash; el nombre queda libre para que otros puedan usarlo.</li>
+    <li><span class="deleted">Bundles publicados</span> &mdash; todos los bundles de sonido que compartiste en la Comunidad, incluyendo descripciones, etiquetas y configuraci&oacute;n de sonidos.</li>
+    <li><span class="deleted">Mixes publicados</span> &mdash; todos los mixes que compartiste en la Comunidad.</li>
+    <li><span class="deleted">Comentarios</span> &mdash; todos los comentarios que publicaste en bundles de otros usuarios.</li>
+    <li><span class="deleted">Valoraciones</span> &mdash; todas las valoraciones con estrellas que diste. Los promedios de los bundles afectados se recalculan.</li>
+    <li><span class="deleted">Agregados</span> &mdash; tus registros de &ldquo;agregar&rdquo;. Los contadores de agregados de los bundles afectados se actualizan.</li>
+    <li><span class="deleted">&Uacute;til</span> &mdash; tus marcas de &ldquo;&uacute;til&rdquo; en comentarios. Los contadores se actualizan.</li>
+</ul>
+<p>Esta eliminaci&oacute;n es <strong>permanente y no se puede deshacer</strong>.</p>
+
+<h2>Qu&eacute; se conserva</h2>
+<p>Los siguientes datos <span class="kept">no se ven afectados</span> por la eliminaci&oacute;n de la cuenta:</p>
+<ul>
+    <li><span class="kept">Datos locales en tu tel&eacute;fono</span> &mdash; tus bundles, mixes, mesa de trabajo y configuraci&oacute;n de la app permanecen en tu dispositivo. No dependen de una cuenta.</li>
+    <li><span class="kept">Bundles que otros agregaron</span> &mdash; si otro usuario agreg&oacute; uno de tus bundles a su colecci&oacute;n antes de que eliminaras tu cuenta, su copia local sigue siendo suya.</li>
+</ul>
+
+<h2>Alternativa: cerrar sesi&oacute;n</h2>
+<p>Si solo quieres dejar de usar las funciones de Comunidad sin perder tu contenido publicado, puedes cerrar sesi&oacute;n. Ve a <strong>Yo &rarr; Configuraci&oacute;n &rarr; Cuenta &rarr; Cerrar sesi&oacute;n</strong>. Puedes volver a iniciar sesi&oacute;n en cualquier momento.</p>
+
+<h2>Contacto</h2>
+<div class="contact">
+    <p>Si no puedes eliminar tu cuenta desde la app (por ejemplo, olvidaste tu contrase&ntilde;a y no puedes restablecerla), cont&aacute;ctanos y la eliminaremos por ti:</p>
+    <p><strong>Correo:</strong> <a href="mailto:sandaur.support@gmail.com">sandaur.support@gmail.com</a></p>
+</div>
+
+</div>
+
+<script>
+function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-toggle button').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.getElementById('btn-' + lang).classList.add('active');
+    document.documentElement.lang = lang;
+    document.getElementById('title-en').textContent = lang === 'es' ? 'Eliminación de cuenta' : 'Account Deletion';
+}
+</script>
+
+</body>
+</html>
