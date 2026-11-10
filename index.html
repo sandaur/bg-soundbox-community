@@ -216,7 +216,7 @@ body { background: var(--bg); color: var(--text); font-family: "Inter", system-u
 .cta-h em { color: var(--cyan); font-style: normal; }
 .cta-sub { color: var(--muted); margin-bottom: 36px; font-size: 1rem; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.65; }
 
-/* Google group */
+/* Google group join */
 .gg-section {
   padding-left: max(24px, env(safe-area-inset-left, 0px));
   padding-right: max(24px, env(safe-area-inset-right, 0px));
@@ -226,9 +226,24 @@ body { background: var(--bg); color: var(--text); font-family: "Inter", system-u
 #google-group-embed {
   max-width: 600px; margin: 0 auto;
   background: var(--card); border: 1px solid var(--border); border-radius: 6px;
-  padding: 32px; text-align: center; color: var(--muted); font-size: 14px;
+  padding: 40px 32px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
 }
-#google-group-embed strong { display: block; color: var(--text); font-size: 15px; font-family: "Barlow Condensed", sans-serif; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+#google-group-embed strong {
+  display: block; color: var(--text); font-size: 18px;
+  font-family: "Barlow Condensed", sans-serif; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px;
+}
+#google-group-embed p { color: var(--muted); font-size: 14px; line-height: 1.6; max-width: 400px; margin: 0; }
+.join-group-btn {
+  display: inline-block; margin-top: 8px;
+  background: var(--cyan); color: #0B0E11; text-decoration: none;
+  font-family: "Barlow Condensed", sans-serif; font-weight: 700;
+  font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 13px 30px; border-radius: 3px;
+  transition: opacity .15s, transform .15s;
+}
+.join-group-btn:hover { opacity: .85; transform: translateY(-1px); }
 footer {
   padding-left: max(24px, env(safe-area-inset-left, 0px));
   padding-right: max(24px, env(safe-area-inset-right, 0px));
@@ -373,8 +388,9 @@ footer {
 
 <div class="gg-section">
   <div id="google-group-embed">
-    <strong>Board Game Soundtable Alpha Community</strong>
-    Google Group embed will appear here. Join the community to get early access and updates.
+    <strong data-t="gg_h">Board Game Soundtable Alpha Community</strong>
+    <p data-t="gg_d">Get early access, release notes, and direct feedback channels — all in one place.</p>
+    <a href="https://groups.google.com/g/bg-soundbox-testers/" target="_blank" rel="noopener" class="join-group-btn" data-t="gg_cta">Join the Group</a>
   </div>
 </div>
 
@@ -396,7 +412,8 @@ const T = {
     f4_eye:"Mix Timeline", f4_h:"Mix Editor", f4_d:"Build multi-track sessions with a visual timeline. Script the entire arc of your adventure.",
     stat1:"Sounds", stat2:"Live Pads", stat3:"Mix Channels", stat4:"Adventures",
     cta_eye:"Limited Access", cta_h:"Join the Closed Alpha.",
-    cta_d:"Slots are limited. Be among the first players to shape what the app becomes."
+    cta_d:"Slots are limited. Be among the first players to shape what the app becomes.",
+    gg_h:"Board Game Soundtable Alpha Community", gg_d:"Get early access, release notes, and direct feedback channels — all in one place.", gg_cta:"Join the Group"
   },
   es: {
     tag_alpha:"ALFA CERRADO", tag_mobile:"Android", tag_free:"Acceso Gratuito",
@@ -410,7 +427,8 @@ const T = {
     f4_eye:"Línea de Tiempo", f4_h:"Editor de Mezcla", f4_d:"Crea sesiones multipista con una línea de tiempo visual. Escribe el arco completo de tu aventura.",
     stat1:"Sonidos", stat2:"Pads en Vivo", stat3:"Canales de Mezcla", stat4:"Aventuras",
     cta_eye:"Acceso Limitado", cta_h:"Uúnete al Alfa Cerrado.",
-    cta_d:"Los cupos son limitados. Sé de los primeros en dar forma a la app."
+    cta_d:"Los cupos son limitados. Sé de los primeros en dar forma a la app.",
+    gg_h:"Comunidad Alpha de Board Game Soundtable", gg_d:"Accede primero, recibe notas de versión y canales de retroalimentación directa — todo en un solo lugar.", gg_cta:"Unirse al Grupo"
   }
 };
 let lang = "en";
