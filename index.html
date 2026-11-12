@@ -251,12 +251,14 @@ body::before {
   position: relative;
   z-index: 1;
   border-radius: 2.4rem;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.06);
-  border: 12px solid #252525;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  border: 12px solid transparent;
+  background:
+    linear-gradient(#111, #111) padding-box,
+    linear-gradient(135deg, #484848 0%, #1c1c1c 30%, #303030 50%, #181818 70%, #424242 100%) border-box;
   cursor: zoom-in;
   max-width: min(280px, 72vw);
   overflow: hidden;
-  background: #111;
 }
 /* Camera punch-hole */
 .phone::before {
