@@ -251,13 +251,42 @@ body::before {
   position: relative;
   z-index: 1;
   border-radius: 2.4rem;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
-  border: 14px solid #2a2a2a;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.06);
+  border: 12px solid #252525;
   cursor: zoom-in;
   max-width: min(280px, 72vw);
   overflow: hidden;
+  background: #111;
 }
-.phone img { border-radius: 2.4rem; width: 100%; }
+/* Camera punch-hole */
+.phone::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 16px;
+  border-radius: 8px;
+  background: #111;
+  z-index: 3;
+  pointer-events: none;
+}
+/* Home bar */
+.phone::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 4px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.3);
+  z-index: 3;
+  pointer-events: none;
+}
+.phone img { width: 100%; display: block; }
 
 /* ── Features ────────────────────────────────────────────────────────────── */
 .features { padding-block: 80px; }
