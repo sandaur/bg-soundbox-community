@@ -595,9 +595,9 @@ footer {
       <h1><span data-en>Set the Stage.<br><em>Command the Sound.</em></span><span data-es>Prepara el Escenario.<br><em>Domina el Sonido.</em></span></h1>
       <p><span data-en>Every roll of the dice deserves a soundtrack. BG Soundbox gives your table the living, breathing audio layer it was always missing.</span><span data-es>Cada tirada de dados merece una banda sonora. BG Soundbox le da a tu mesa la capa de audio viva y dinámica que siempre le faltó.</span></p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="https://groups.google.com/g/bg-soundbox-testers" target="_blank" rel="noopener">
+        <button class="btn-primary" onclick="showBetaModal()">
           <span data-en>Join the Beta &#8212; Step 1</span><span data-es>Unirse a la Beta &#8212; Paso 1</span>
-        </a>
+        </button>
         <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=cl.sandaur.boardgamesoundbox" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2 2 0 0 0 2.17-.16l.06-.04 12.24-7.08-3.52-3.52-10.95 10.8zm-1.14-21.4A2 2 0 0 0 2 3.4V20.6a2 2 0 0 0 .04.42l11.11-11.1-10.11-9.56zm19.57 8.74-3.5-2.02-3.9 3.92 3.9 3.92 3.52-2.03a2.01 2.01 0 0 0 0-3.79zM5.35.4 16.78 7.1l-3.52 3.52L2.11.59A2.01 2.01 0 0 1 5.35.4z"/></svg>
           <span data-en>Download &#8212; Step 2</span><span data-es>Descargar &#8212; Paso 2</span>
@@ -819,5 +819,44 @@ footer {
     if (e.key === 'Escape') close();
   });
 })();
+</script>
+
+<!-- Beta join modal -->
+<style>
+#beta-modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s ease}
+#beta-modal-overlay.open{opacity:1;pointer-events:auto}
+#beta-modal{background:var(--navy,#0d1526);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:32px 28px;max-width:420px;width:100%;position:relative;transform:translateY(12px);transition:transform .2s ease}
+#beta-modal-overlay.open #beta-modal{transform:translateY(0)}
+#beta-modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:inherit;opacity:.5;font-size:1.3rem;cursor:pointer;line-height:1;padding:4px}
+#beta-modal-close:hover{opacity:1}
+#beta-modal h3{margin:0 0 10px;font-size:1.1rem;font-family:'Space Grotesk',sans-serif}
+#beta-modal p{font-size:.9rem;line-height:1.6;opacity:.8;margin:0 0 24px}
+#beta-modal .modal-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 20px;background:var(--amber,#f5a623);color:#090F1D;border:none;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;text-decoration:none}
+#beta-modal .modal-cta:hover{filter:brightness(1.08)}
+</style>
+
+<div id="beta-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="beta-modal-title">
+  <div id="beta-modal">
+    <button id="beta-modal-close" onclick="closeBetaModal()" aria-label="Close">&#x2715;</button>
+    <h3 id="beta-modal-title">
+      <span data-en>&#x23F3; One thing before you join</span>
+      <span data-es>&#x23F3; Una cosa antes de unirte</span>
+    </h3>
+    <p>
+      <span data-en>After joining the beta group with your Google Play account, <strong>wait 1&ndash;2 minutes</strong> before searching for the app on the Play Store &mdash; Google needs a moment to grant access. If the app doesn&rsquo;t appear right away, try again after a couple of minutes.</span>
+      <span data-es>Después de unirte al grupo beta con tu cuenta de Google Play, <strong>espera 1&ndash;2 minutos</strong> antes de buscar la app en Play Store &mdash; Google necesita un momento para confirmar el acceso. Si la app no aparece de inmediato, inténtalo de nuevo en unos minutos.</span>
+    </p>
+    <a id="beta-modal-btn" href="https://groups.google.com/g/bg-soundbox-testers" target="_blank" rel="noopener" class="modal-cta" onclick="closeBetaModal()">
+      <span data-en>Got it &mdash; join the beta</span>
+      <span data-es>Entendido &mdash; unirme a la beta</span>
+    </a>
+  </div>
+</div>
+
+<script>
+function showBetaModal(){document.getElementById('beta-modal-overlay').classList.add('open')}
+function closeBetaModal(){document.getElementById('beta-modal-overlay').classList.remove('open')}
+document.getElementById('beta-modal-overlay').addEventListener('click',function(e){if(e.target===this)closeBetaModal()})
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBetaModal()})
 </script>
 </body></html>
