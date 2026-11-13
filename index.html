@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -19,7 +19,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   /* Brand (from the live landing page) */
@@ -44,6 +44,7 @@
   --app-muted: #97A5B4;
   --cyan: #19E1FF;
   --violet: #B57CFF;
+  --app-primary: #7EC8FF;
   --orange: #E8661F;
   --radius: 14px;
   --gutter: max(16px, 4vw);
@@ -55,10 +56,10 @@ html[lang=en] [data-es] { display: none !important; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
-  font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.6;
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 16.5px; line-height: 1.6;
   overflow-x: hidden;
 }
-h1, h2, h3, .display { font-family: 'Space Grotesk', system-ui, sans-serif; line-height: 1.15; margin: 0; }
+h1, h2, h3, .display { font-family: 'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif; line-height: 1.05; margin: 0; letter-spacing: .005em; }
 p { margin: 0; }
 a { color: var(--amber); }
 img, svg { display: block; }
@@ -71,13 +72,15 @@ button { font: inherit; color: inherit; }
 .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-inline: var(--gutter); }
 section { padding-block: clamp(56px, 9vw, 104px); }
 .section-head { max-width: 720px; margin-bottom: clamp(28px, 5vw, 48px); }
-.kicker { display: inline-block; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
-h2 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); font-weight: 700; }
+.tab-chip { display: inline-flex; align-items: center; gap: 8px; padding: 5px 14px 5px 10px; margin-bottom: 14px; border-radius: 999px; background: var(--app-panel); border: 1px solid var(--app-line); color: var(--cyan); font-size: .88rem; font-weight: 600; }
+.tab-chip svg { width: 18px; height: 18px; flex: none; }
+.kicker { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
+h2 { font-size: clamp(2.1rem, 5.2vw, 3.1rem); font-weight: 700; }
 .lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; }
 .alt { background: var(--surface); border-block: 1px solid var(--line); }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 22px; border-radius: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; text-decoration: none; cursor: pointer; border: 2px solid transparent; transition: filter .15s ease, background .15s ease; text-align: center; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 22px; border-radius: 12px; font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700; font-size: 1rem; text-decoration: none; cursor: pointer; border: 2px solid transparent; transition: filter .15s ease, background .15s ease; text-align: center; }
 .btn-primary { background: var(--amber); color: #0A0F1B; }
 .btn-primary:hover { filter: brightness(1.08); }
 .btn-ghost { background: transparent; color: var(--text); border-color: rgba(255,255,255,.28); }
@@ -89,7 +92,7 @@ h2 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); font-weight: 700; }
 /* Nav */
 .nav { position: sticky; top: 0; z-index: 50; background: rgba(9,15,29,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; align-items: center; gap: 10px; min-height: 64px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; margin-right: auto; min-width: 0; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700; font-size: 1rem; margin-right: auto; min-width: 0; }
 .brand-mark { width: 34px; height: 34px; border-radius: 9px; flex: none; display: block; object-fit: cover; }
 .brand-mark svg { width: 20px; height: 20px; }
 .brand-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -104,15 +107,22 @@ h2 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); font-weight: 700; }
 
 /* Hero */
 .hero { padding-top: clamp(36px, 7vw, 80px); padding-bottom: clamp(56px, 8vw, 96px); position: relative; overflow: hidden; }
-.hero::before { content: ""; position: absolute; inset: -20% -10% auto auto; width: 70vw; height: 70vw; max-width: 760px; max-height: 760px; background: radial-gradient(circle, rgba(252,163,17,.16), transparent 62%); pointer-events: none; }
+
 .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 5vw, 64px); align-items: center; position: relative; }
 .eyebrow { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: .85rem; color: var(--muted); margin-bottom: 18px; }
 .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--text); font-weight: 500; }
 .pill-amber { border-color: var(--amber-border); background: var(--amber-dim); color: var(--amber); }
-.hero h1 { font-size: clamp(2.1rem, 6vw, 3.7rem); font-weight: 700; letter-spacing: -.01em; }
+.hero h1 { font-size: clamp(2.7rem, 7.4vw, 4.6rem); font-weight: 700; }
 .hero h1 em { font-style: normal; color: var(--amber); }
 .hero .sub { font-size: clamp(1.05rem, 2.2vw, 1.22rem); color: var(--muted); margin-top: 18px; max-width: 560px; }
 .hero .sub strong { color: var(--text); font-weight: 600; }
+.kchips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.kchip { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border: 1px solid var(--app-line-strong); border-radius: 7px; background: var(--app-panel); color: var(--app-text); font-family: 'Roboto', system-ui, sans-serif; font-size: .92rem; }
+.kchip svg { width: 18px; height: 18px; flex: none; }
+.kchip b { font-weight: 700; font-variant-numeric: tabular-nums; }
+.kchip.amb svg { color: var(--cyan); } .kchip.mus svg { color: var(--violet); } .kchip.fx svg { color: var(--orange); }
+.hero-status { margin-top: 16px; color: var(--muted); font-size: .95rem; }
+.hero-status b { color: var(--text); }
 .cats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .cat { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 8px; background: rgba(255,255,255,.04); border: 1px solid var(--line); font-size: .9rem; }
 .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
@@ -122,7 +132,7 @@ h2 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); font-weight: 700; }
 .beta-box { margin-top: 28px; border: 1.5px solid var(--amber-border); background: var(--amber-dim); border-radius: var(--radius); padding: 18px; max-width: 560px; }
 .beta-head { display: flex; gap: 12px; align-items: flex-start; }
 .beta-head svg { width: 24px; height: 24px; flex: none; color: var(--amber); margin-top: 2px; }
-.beta-head strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.02rem; color: var(--amber); }
+.beta-head strong { display: block; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 1.02rem; color: var(--amber); }
 .beta-head p { font-size: .93rem; color: var(--text); margin-top: 4px; }
 .beta-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
 .beta-actions .btn { width: 100%; padding-inline: 12px; }
@@ -130,7 +140,7 @@ h2 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); font-weight: 700; }
 
 /* Phone mockups (app palette) */
 .phone { width: min(300px, 100%); margin-inline: auto; background: #000; border-radius: 38px; padding: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08); position: relative; }
-.screen { background: var(--app-bg); border-radius: 29px; overflow: hidden; color: var(--app-text); font-family: 'Inter', system-ui, sans-serif; font-size: 13px; line-height: 1.35; display: flex; flex-direction: column; min-height: 540px; }
+.screen { background: var(--app-bg); border-radius: 29px; overflow: hidden; color: var(--app-text); font-family: 'Roboto', system-ui, sans-serif; font-size: 13px; line-height: 1.35; display: flex; flex-direction: column; min-height: 540px; }
 .statusbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px 4px; font-size: 11px; color: var(--app-muted); }
 .statusbar .cam { width: 10px; height: 10px; background: #111; border-radius: 50%; box-shadow: 0 0 0 2px #1b1b1b; }
 .app-top { display: flex; align-items: center; gap: 8px; padding: 8px 14px 10px; border-bottom: 1px solid var(--app-line); }
@@ -140,6 +150,7 @@ h2 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); font-weight: 700; }
 .app-label { font-size: 11px; font-weight: 600; color: var(--app-muted); text-transform: uppercase; letter-spacing: .08em; }
 .stop-all { border: 1px solid var(--orange); color: var(--orange); background: transparent; border-radius: 5px; padding: 5px 9px; font-size: 11.5px; font-weight: 700; cursor: pointer; white-space: nowrap; }
 .stop-all:hover { background: rgba(232,102,31,.12); }
+.shot-img { width: 100%; height: auto; border-radius: 29px; display: block; }
 .mock-note { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 14px; }
 
 /* Scene list (mixes inside a bundle) */
@@ -181,8 +192,8 @@ h2 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); font-weight: 700; }
 .tabbar { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--app-line); background: var(--app-panel); padding: 7px 4px 10px; }
 .tab { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 9.5px; color: var(--app-muted); }
 .tab svg { width: 17px; height: 17px; }
-.tab.on { color: var(--cyan); }
-.tab.on svg { background: var(--cyan-deep, #0B3C47); border-radius: 999px; padding: 1px 9px; width: 35px; box-sizing: content-box; }
+.tab.on { color: var(--app-primary); }
+
 
 /* Mixer */
 .track { background: rgba(26,33,41,.6); border: 1px solid var(--app-line); border-radius: 8px; padding: 9px 10px; }
@@ -210,7 +221,7 @@ input[type=range] { width: 100%; margin: 0; height: 22px; background: transparen
 .thumb i { border-radius: 2px; }
 .bundle .meta { flex: 1; min-width: 0; }
 .bundle .meta b { display: block; font-size: 13px; }
-.bundle .meta span { font-size: 11px; color: var(--app-muted); }
+.bundle .meta > span { font-size: 11px; color: var(--app-muted); }
 .split { display: flex; height: 4px; border-radius: 2px; overflow: hidden; margin-top: 5px; gap: 2px; }
 .split i { display: block; height: 100%; }
 .play-chip { width: 30px; height: 30px; border-radius: 50%; background: var(--cyan); color: #04212A; display: grid; place-items: center; flex: none; }
@@ -233,7 +244,7 @@ input[type=range] { width: 100%; margin: 0; height: 22px; background: transparen
 
 /* Lock-screen notification mockup */
 .lock .screen { background: linear-gradient(180deg, #1a2440, #0b0f1a 70%); min-height: 420px; }
-.clock { text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 54px; font-weight: 500; margin-top: 28px; letter-spacing: -.02em; }
+.clock { text-align: center; font-family: 'Roboto', sans-serif; font-size: 54px; font-weight: 500; margin-top: 28px; letter-spacing: -.02em; }
 .date { text-align: center; color: var(--app-muted); font-size: 12px; }
 .notif { margin: 26px 12px 0; background: rgba(30,38,50,.94); border-radius: 18px; padding: 12px 14px; border: 1px solid rgba(255,255,255,.06); }
 .notif-head { display: flex; align-items: center; gap: 7px; font-size: 10.5px; color: var(--app-muted); }
@@ -242,37 +253,329 @@ input[type=range] { width: 100%; margin: 0; height: 22px; background: transparen
 .notif span.l2 { font-size: 11.5px; color: var(--app-muted); }
 .notif .act { display: inline-block; margin-top: 9px; color: var(--cyan); font-weight: 700; font-size: 12px; letter-spacing: .02em; }
 
-/* Problem / solution */
-.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.vs-card { border-radius: var(--radius); padding: clamp(20px, 3vw, 28px); border: 1px solid var(--line); background: rgba(255,255,255,.02); }
-.vs-card h3 { font-size: 1.15rem; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.vs-card h3 svg { width: 22px; height: 22px; flex: none; }
-.vs-card.bad h3 svg { color: #FF7A7A; }
-.vs-card.good { border-color: var(--amber-border); background: var(--amber-dim); }
-.vs-card.good h3 svg { color: var(--amber); }
-.vs-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-.vs-card li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; color: var(--muted); }
-.vs-card.good li { color: var(--text); }
-.vs-card li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; margin-top: 9px; background: currentColor; opacity: .55; }
-.vs-card.good li::before { background: var(--amber); opacity: 1; }
-@media (max-width: 760px) { .vs { grid-template-columns: 1fr; } }
+/* Real-app mockups: shared header */
+.app-top.real { gap: 8px; }
+.app-top.real .title { font-size: 16px; }
+.back { display: inline-flex; align-items: center; gap: 2px; color: var(--app-primary); font-size: 13px; flex: none; }
+.back svg { width: 14px; height: 14px; }
+.top-btn svg { width: 12px; height: 12px; display: inline-block; vertical-align: -2px; margin-right: 4px; }
+.top-btn.saved { color: var(--app-muted); border-color: var(--app-line); }
+.top-btn.kebab { border-color: var(--app-line-strong); padding: 2px 9px; font-size: 14px; line-height: 1.2; }
+
+/* Big pads layout (hero) */
+.bigpads { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 10px; padding: 16px 16px 18px; justify-items: center; align-content: start; }
+.bp { background: none; border: 0; padding: 0; color: var(--app-muted); display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; width: 100%; }
+.bp-tile { position: relative; width: 66px; height: 66px; border-radius: 16px; border: 2px solid; display: grid; place-items: center; background: var(--app-panel); transition: background .12s ease; }
+.bp.amb .bp-tile { border-color: rgba(25,225,255,.45); color: var(--cyan); }
+.bp.fx .bp-tile { border-color: rgba(232,102,31,.5); color: var(--orange); }
+.bp-ico { width: 26px; height: 26px; }
+.arc { position: absolute; inset: 5px; width: calc(100% - 10px); height: calc(100% - 10px); fill: none; stroke: currentColor; stroke-width: 6; stroke-linecap: round; }
+.bp.amb[aria-pressed="true"] .bp-tile { background: var(--cyan); border-color: var(--cyan); color: var(--app-bg); }
+.bp.fx.firing .bp-tile { background: var(--orange); border-color: #5A2A10; color: var(--app-bg); }
+.bp-badge { position: absolute; top: -9px; right: -9px; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 11px; background: var(--orange); color: var(--app-bg); border: 2px solid var(--app-bg); font-size: 11px; font-weight: 700; display: grid; place-items: center; }
+.bp-badge[hidden] { display: none; }
+.bp-name { font-size: 12px; line-height: 1.25; text-align: center; max-width: 112px; }
+.bp[aria-pressed="true"] .bp-name, .bp.firing .bp-name { color: var(--app-text); font-weight: 600; }
+
+/* Mix editor timeline */
+.tl-bar { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-bottom: 1px solid var(--app-line); }
+.tl-play { width: 34px; height: 34px; border-radius: 7px; border: 0; background: var(--app-primary); color: var(--app-bg); display: grid; place-items: center; cursor: pointer; padding: 0; }
+.tl-play svg { width: 14px; height: 14px; }
+.tl-play .i-s, .tl-play.on .i-p { display: none; }
+.tl-play.on .i-s { display: block; }
+.tl-time { font-size: 12px; font-variant-numeric: tabular-nums; }
+.tl-spacer { flex: 1; }
+.tl-add { width: 28px; height: 28px; border-radius: 6px; background: var(--app-text); color: var(--app-bg); display: grid; place-items: center; font-size: 18px; line-height: 1; }
+.tl-more { width: 22px; text-align: center; color: var(--app-muted); font-size: 16px; }
+.timeline { position: relative; padding: 4px 0; }
+.tl-area { position: absolute; top: 0; bottom: 0; left: 75px; right: 8px; pointer-events: none; z-index: 2; }
+.playhead { position: absolute; top: 0; bottom: 0; left: 0; width: 2px; background: var(--app-text); opacity: .85; }
+.lane { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: center; min-height: 40px; border-left: 3px solid var(--orange); }
+.lane.amb { border-left-color: var(--cyan); }
+.lane.sub { min-height: 16px; border-left-color: transparent; }
+.lane-name { font-size: 10.5px; line-height: 1.2; color: var(--app-text); padding: 0 6px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.lane-track { position: relative; align-self: stretch; margin-right: 8px; }
+.clip { position: absolute; top: 4px; height: calc(100% - 8px); border-radius: 4px; border: 1px solid rgba(232,102,31,.6); background: rgba(232,102,31,.22); color: var(--orange); cursor: pointer; padding: 0; overflow: hidden; }
+.clip::before { content: ""; position: absolute; inset: 22% 4px; background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 4px); -webkit-mask-image: linear-gradient(90deg, #000 0 12%, rgba(0,0,0,.25) 60%, rgba(0,0,0,.1)); mask-image: linear-gradient(90deg, #000 0 12%, rgba(0,0,0,.25) 60%, rgba(0,0,0,.1)); }
+.clip.amb { border-color: rgba(25,225,255,.6); background: rgba(25,225,255,.18); color: var(--cyan); }
+.clip.selected { border: 2px solid var(--app-text); }
+.clip.hit { filter: brightness(1.45); }
+.bar { position: absolute; top: 5px; height: 6px; border-radius: 2px; background: var(--orange); }
+.bar + .bar { top: 9px; }
+.bar.amb { background: var(--cyan); }
+.clip-panel { border-top: 1px solid var(--app-line); padding: 10px 10px 12px; }
+.cp-head { display: flex; align-items: center; gap: 10px; }
+.cp-ico { width: 32px; height: 32px; border-radius: 7px; border: 1px solid var(--app-line-strong); display: grid; place-items: center; color: var(--cyan); flex: none; }
+.cp-ico.fx { color: var(--orange); }
+.cp-ico svg { width: 16px; height: 16px; }
+.cp-meta { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.cp-meta b { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cp-meta span { font-size: 11px; color: var(--app-muted); }
+.cp-ms { display: flex; border: 1px solid var(--app-line-strong); border-radius: 6px; overflow: hidden; }
+.cp-ms span { width: 26px; height: 26px; display: grid; place-items: center; font-size: 11px; font-weight: 700; }
+.cp-ms span + span { border-left: 1px solid var(--app-line-strong); }
+.cp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+.stepper { display: grid; grid-template-columns: 24px minmax(0, 1fr) 24px; align-items: center; border: 1px solid var(--app-line); border-radius: 7px; min-height: 44px; }
+.stepper.wide { grid-column: 1 / -1; }
+.stepper button { height: 100%; border: 0; background: transparent; color: var(--app-muted); font-size: 15px; cursor: pointer; padding: 0; }
+.stepper button:hover { color: var(--app-text); }
+.st-mid { display: flex; flex-direction: column; align-items: center; text-align: center; border-inline: 1px solid var(--app-line); padding: 4px 2px; min-width: 0; }
+.st-label { font-size: 9.5px; color: var(--app-muted); line-height: 1.15; }
+.st-val { font-size: 12.5px; font-variant-numeric: tabular-nums; }
+
+/* Bundle details */
+.bd-hero { display: flex; gap: 12px; align-items: center; padding: 14px 12px; background: linear-gradient(90deg, #1E8E9E, #0F2B3A 85%); }
+.bd-cover { width: 58px; height: 58px; border-radius: 9px; background: var(--app-card); border: 1px solid var(--app-line-strong); display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 6px; flex: none; }
+.bd-cover i { background: #5D6670; border-radius: 2px; }
+.bd-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.bd-meta b { font-size: 20px; }
+.bd-meta span { font-size: 11px; color: #C9D3DD; }
+.bd-split { display: flex; height: 3px; }
+.bd-split i { display: block; }
+.bd-body { padding: 10px 12px 14px; display: flex; flex-direction: column; gap: 9px; }
+.bd-actions { display: flex; border-radius: 9px; overflow: hidden; background: var(--app-primary); color: var(--app-bg); }
+.bd-play { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; font-weight: 700; font-size: 13px; }
+.bd-play svg { width: 13px; height: 13px; }
+.bd-edit { width: 46px; display: grid; place-items: center; border-left: 1px solid rgba(11,14,17,.35); }
+.bd-edit svg { width: 16px; height: 16px; }
+.bd-label { font-size: 12.5px; }
+.bd-chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.bd-chips > span { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 5px 2px; border: 1px solid var(--app-line-strong); border-radius: 6px; font-size: 10.5px; color: var(--app-muted); white-space: nowrap; }
+.bd-chips svg { width: 13px; height: 13px; flex: none; }
+.bd-chips .c-amb svg { color: var(--cyan); } .bd-chips .c-mus svg { color: var(--violet); } .bd-chips .c-fx svg { color: var(--orange); }
+.bd-list { border-radius: 8px; overflow: hidden; background: var(--app-card); }
+.bd-row { display: flex; align-items: center; gap: 8px; padding: 7px 8px 7px 6px; border-left: 3px solid var(--cyan); }
+.bd-row + .bd-row { border-top: 1px solid var(--app-line); }
+.bd-row.fx { border-left-color: var(--orange); }
+.bd-ico { width: 16px; height: 16px; color: var(--cyan); flex: none; }
+.bd-row.fx .bd-ico { color: var(--orange); }
+.bd-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.bd-txt b { font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bd-txt em { font-style: normal; font-size: 9.5px; font-weight: 400; color: var(--cyan); margin-left: 3px; }
+.bd-row.fx .bd-txt em { color: var(--orange); }
+.bd-txt > span { font-size: 9.5px; color: var(--app-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bd-rowplay { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--app-line-strong); background: var(--app-bg); color: var(--app-text); display: grid; place-items: center; cursor: pointer; padding: 0; flex: none; }
+.bd-rowplay svg { width: 11px; height: 11px; }
+.bd-rowplay .i-s, .bd-rowplay[aria-pressed="true"] .i-p { display: none; }
+.bd-rowplay[aria-pressed="true"] .i-s { display: block; }
+.bd-rowplay[aria-pressed="true"] { background: var(--app-primary); color: var(--app-bg); border-color: var(--app-primary); }
+
+/* Demo: effect filter chips */
+.fx-chips { display: flex; gap: 6px; padding: 8px 12px 0; }
+.fx-chips > span { font-size: 11px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--app-line-strong); color: var(--app-muted); white-space: nowrap; }
+.fx-chips > span.on { background: var(--orange); border-color: var(--orange); color: var(--app-bg); font-weight: 600; }
+
+/* Hero layout picker */
+.layout-picker { width: min(300px, 100%); margin: 0 auto 14px; }
+.layout-picker .lp-label { display: block; font-size: .82rem; color: var(--muted); margin-bottom: 8px; text-align: center; }
+.lp-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.lp-tab { min-height: 36px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); background: transparent; color: var(--text); font-size: .85rem; font-weight: 600; cursor: pointer; }
+.lp-tab:hover { border-color: var(--amber-border); }
+.lp-tab[aria-selected="true"] { background: var(--amber); border-color: var(--amber); color: #0A0F1B; }
+.hero .screen { height: 560px; min-height: 0; position: relative; }
+.lp-panel { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; }
+.lp-panel::-webkit-scrollbar { display: none; }
+.lp-panel[hidden] { display: none; }
+
+/* Compact */
+.lp-compact { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 14px; align-content: start; }
+.bed { position: relative; height: 54px; border-radius: 10px; border: 1px solid rgba(25,225,255,.35); background: rgba(35,44,54,.5); color: var(--cyan); display: flex; align-items: center; gap: 8px; padding: 0 12px; cursor: pointer; overflow: hidden; text-align: left; }
+.bed.fx { border-color: rgba(232,102,31,.4); color: var(--orange); }
+.bed svg { width: 18px; height: 18px; flex: none; }
+.bed span { color: var(--app-text); font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bed i { position: absolute; left: 0; bottom: 0; height: 3px; background: currentColor; opacity: .8; }
+.bed.on { background: rgba(25,225,255,.22); border: 1.5px solid rgba(25,225,255,.9); }
+.bed.fx.on { background: rgba(232,102,31,.25); border-color: rgba(232,102,31,.9); }
+
+/* List */
+.lp-list { display: flex; flex-direction: column; gap: 6px; padding: 12px; }
+.lp-list .bd-row { border-left: 0; border-radius: 9px; background: rgba(26,33,41,.55); padding: 8px 8px 8px 10px; }
+.lp-list .bd-row + .bd-row { border-top: 0; }
+.lp-list .bd-row.sounding.amb { background: rgba(25,225,255,.14); }
+.lp-list .bd-row.sounding.fx { background: rgba(232,102,31,.16); }
+.lp-list .bd-ico { width: 20px; height: 20px; }
+
+/* Grouped */
+.lp-grouped { padding: 14px 12px; display: flex; flex-direction: column; gap: 10px; }
+.grp-head { display: flex; align-items: center; gap: 6px; font-size: 10.5px; letter-spacing: .06em; color: var(--app-muted); }
+.grp-head svg { width: 14px; height: 14px; }
+.grp-head.c-amb svg { color: var(--cyan); } .grp-head.c-fx svg { color: var(--orange); }
+.grp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 6px; justify-items: center; }
+.lp-grouped .bp-tile { width: 54px; height: 54px; border-radius: 14px; }
+.lp-grouped .bp-ico { width: 22px; height: 22px; }
+.lp-grouped .bp-name { font-size: 11px; }
+
+/* Console (two beds) */
+.lp-console .mixer.two { grid-template-columns: repeat(2, 52px); justify-content: start; }
+.lp-console .fader { height: 120px; }
+.fx-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+.fx-grid.four .fx { font-size: 10px; min-height: 52px; padding: 5px 3px; }
+
+/* Carousel controls */
+.lp-top { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
+.lp-top .lp-label { margin: 0; }
+.lp-pause { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255,255,255,.22); background: transparent; color: var(--text); display: grid; place-items: center; cursor: pointer; flex: none; padding: 0; }
+.lp-pause svg { width: 12px; height: 12px; }
+.lp-pause .i-p, .lp-pause.paused .i-pause { display: none; }
+.lp-pause.paused .i-p { display: block; }
+.lp-progress { height: 3px; border-radius: 2px; background: rgba(255,255,255,.1); margin-top: 10px; overflow: hidden; }
+.lp-progress i { display: block; height: 100%; width: 100%; background: var(--amber); transform: scaleX(0); transform-origin: left center; will-change: transform; }
+
+/* Hex map */
+.lp-hex { display: flex; flex-direction: column; }
+.hx-chips { display: flex; gap: 6px; padding: 7px 12px; border-bottom: 1px solid var(--app-line); }
+.hx-chips.threat { border-bottom: 0; padding-top: 5px; }
+.hx-chips > span, .hx-chips button { font-size: 10.5px; padding: 4px 9px; border-radius: 8px; border: 1px solid var(--app-line-strong); color: var(--app-muted); background: transparent; white-space: nowrap; }
+.hx-chips button { cursor: pointer; }
+.hx-chips .sel { background: rgba(126,200,255,.18); border-color: transparent; color: var(--app-text); }
+.hx-strip { background: rgba(26,33,41,.6); padding: 7px 12px; display: flex; flex-direction: column; gap: 5px; min-height: 40px; justify-content: center; }
+.hx-strip .empty { font-size: 10.5px; color: rgba(151,165,180,.55); }
+.hx-row { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.hx-row b { width: 52px; flex: none; font-size: 8.5px; font-weight: 600; letter-spacing: .14em; color: var(--app-primary); }
+.hx-row.mus b { color: var(--violet); }
+.hx-row .chips { display: flex; gap: 4px; overflow: hidden; }
+.hx-row .chips > span { font-size: 10px; padding: 3px 8px; border-radius: 8px; border: 1px solid var(--app-line-strong); background: rgba(10,36,64,.7); white-space: nowrap; }
+.hx-area { flex: 1; min-height: 225px; display: grid; place-items: center; background: radial-gradient(circle at 50% 50%, #1A2129, #0B0E11 75%); }
+.hx-grid { position: relative; width: 267px; height: 207px; }
+.hex { position: absolute; width: 72px; height: 83px; padding: 0; border: 0; background: none; cursor: pointer; touch-action: none; color: var(--app-text); }
+.hex-ring, .hex-inner { position: absolute; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.hex-ring { inset: 0; background: color-mix(in srgb, var(--t) 55%, transparent); }
+.hex-inner { inset: 2px; background: color-mix(in srgb, var(--t) 12%, #11161B); overflow: hidden; }
+.hex-fill { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(255,255,255,.08), rgba(255,255,255,.03)); }
+.hex[aria-pressed="true"] .hex-ring { background: var(--app-primary); }
+.hex[aria-pressed="true"] .hex-inner { background: color-mix(in srgb, var(--t) 45%, #041218); }
+.hex[aria-pressed="true"] .hex-fill { background: linear-gradient(to top, rgba(126,200,255,.28), rgba(126,200,255,.08)); }
+.hex-txt { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 5px; text-align: center; pointer-events: none; }
+.hex-txt b { font-size: 7.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1.15; color: rgba(151,165,180,.65); }
+.hex-txt small { font-size: 6.5px; letter-spacing: .1em; color: rgba(151,165,180,.4); margin-top: 1px; }
+.hex[aria-pressed="true"] .hex-txt b { color: var(--app-primary); }
+.hex[aria-pressed="true"] .hex-txt small { color: rgba(126,200,255,.6); }
+.hex-lvl { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font-size: 6.5px; font-weight: 800; color: rgba(255,255,255,.3); pointer-events: none; }
+.hex[aria-pressed="true"] .hex-lvl { color: rgba(255,255,255,.65); }
+.hex:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.hx-fx { border-top: 1px solid var(--app-line); padding: 8px 12px 10px; }
+.hx-fx[hidden] { display: none; }
+.hx-fx-label { display: block; font-size: 9.5px; letter-spacing: .06em; color: var(--app-muted); margin-bottom: 6px; }
+.hx-fx-row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.hx-fx-row .bp { width: 58px; flex: none; }
+.hx-fx-row .bp-tile { width: 44px; height: 44px; border-radius: 12px; }
+.hx-fx-row .bp-ico { width: 18px; height: 18px; }
+.hx-fx-row .bp-name { font-size: 9px; }
+
+/* Screenshots: coverflow carousel */
+.shots-head { margin-bottom: 18px; }
+.shots-head .lead { max-width: 600px; }
+.shots-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.22); background: transparent; color: var(--text); display: grid; place-items: center; cursor: pointer; padding: 0; flex: none; }
+.shots-btn:hover { border-color: var(--amber-border); }
+.shots-btn svg { width: 18px; height: 18px; }
+.shots-btn.next svg { transform: scaleX(-1); }
+.cf { --w: 250px; position: relative; }
+.cf-stage { position: relative; height: calc(var(--w) * 2.145 + 24px); perspective: 1400px; overflow: hidden; touch-action: pan-y; }
+.cf-item { position: absolute; top: 12px; left: 50%; width: var(--w); margin-left: calc(var(--w) / -2); padding: 0; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: #000; cursor: pointer; transform-style: preserve-3d; box-shadow: 0 24px 60px rgba(0,0,0,.55); }
+.cf.ready .cf-item { transition: transform .6s cubic-bezier(.22,.61,.36,1), opacity .6s ease, filter .6s ease; }
+.cf-item img { display: block; width: 100%; height: auto; pointer-events: none; user-select: none; }
+.cf-item.is-center { cursor: zoom-in; border-color: rgba(252,163,17,.45); }
+.cf-caption { min-height: 1.6em; margin-top: 18px; text-align: center; font-weight: 600; }
+.cf-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 14px; }
+.cf-dots { display: flex; gap: 8px; }
+.cf-dots button { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 0; background: rgba(255,255,255,.25); cursor: pointer; transition: width .3s ease, background .3s ease; }
+.cf-dots button[aria-current="true"] { width: 26px; border-radius: 5px; background: var(--amber); }
+@media (max-width: 700px) { .cf { --w: 200px; } }
+@media (max-width: 400px) { .cf { --w: 180px; } }
+@media (prefers-reduced-motion: reduce) { .cf.ready .cf-item, .cf-dots button { transition: none; } }
+.shot-dialog { max-width: min(92vw, 460px); max-height: 94vh; padding: 14px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--text); overflow: auto; }
+.shot-dialog::backdrop { background: rgba(0,0,0,.8); }
+.shot-dialog img { display: block; width: auto; max-width: 100%; max-height: 80vh; margin: 0 auto; border-radius: 12px; }
+.shot-dialog p { margin-top: 10px; text-align: center; color: var(--muted); font-size: .9rem; }
+.shot-close { position: absolute; top: 8px; right: 8px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; z-index: 1; }
+
+/* Bundle examples */
+.ex-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 32px; }
+.ex-col { padding: 0 28px; border-left: 1px solid var(--line); }
+.ex-col:first-child { padding-left: 0; border-left: 0; }
+.ex-col:last-child { padding-right: 0; }
+.ex-tag { font-size: .8rem; color: var(--muted); }
+.ex-col.is-example .ex-tag { color: var(--amber); }
+.ex-col h3 { font-size: 1.45rem; margin-top: 4px; }
+.ex-split { display: flex; gap: 2px; height: 4px; border-radius: 2px; overflow: hidden; margin: 12px 0 14px; max-width: 220px; }
+.ex-split i { display: block; }
+.ex-col p { color: var(--muted); font-size: .97rem; }
+.ex-sounds { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.ex-sounds li { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: .92rem; }
+.ex-sounds svg { width: 16px; height: 16px; flex: none; }
+.ex-sounds .k-amb svg { color: var(--cyan); }
+.ex-sounds .k-mus svg { color: var(--violet); }
+.ex-sounds .k-fx svg { color: var(--orange); }
+@media (max-width: 900px) {
+  .ex-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ex-col, .ex-col:first-child, .ex-col:last-child { padding: 0; border-left: 0; }
+}
+/* Bundle player demo (mixer layout) */
+.demo { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: clamp(28px, 6vw, 72px); align-items: center; }
+.demo .phone { width: min(360px, 100%); }
+.legend { margin: 24px 0 0; display: grid; gap: 14px; }
+.legend div { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 14px; align-items: center; }
+.legend dt { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.legend dd { margin: 0; color: var(--muted); }
+.lg-ico { width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--cyan); color: var(--cyan); display: grid; place-items: center; flex: none; }
+.lg-ico svg { width: 16px; height: 16px; }
+.lg-ico.fx-c { border-color: var(--orange); color: var(--orange); }
+.lg-fader { width: 12px; height: 28px; border-radius: 3px; background: linear-gradient(to top, var(--cyan) 65%, #1b222b 65%); border: 1px solid var(--app-line); flex: none; margin-inline: 8px; }
+.lg-ms { font-size: .72rem; font-weight: 700; letter-spacing: .1em; color: var(--app-muted); border: 1px solid var(--app-line-strong); border-radius: 4px; padding: 3px 5px; flex: none; }
+.top-btn { border: 1px solid var(--app-line-strong); border-radius: 6px; padding: 4px 8px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.top-btn.edit { color: var(--app-primary); }
+.mixer { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px; padding: 12px 10px; border-bottom: 1px solid var(--app-line); }
+.ch { background: var(--app-panel); border: 1px solid var(--app-line); border-radius: 8px; padding: 6px 3px 8px; display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; color: var(--cyan); }
+.ch.mus { color: var(--violet); }
+.ch-btn { width: 32px; height: 32px; border-radius: 7px; border: 1px solid currentColor; background: transparent; color: inherit; display: grid; place-items: center; cursor: pointer; padding: 0; }
+.ch-btn svg { width: 17px; height: 17px; }
+.ch-btn[aria-pressed="true"] { background: currentColor; }
+.ch-btn[aria-pressed="true"] svg { color: var(--app-bg); }
+.ch-val { font-size: 11px; color: var(--app-text); font-variant-numeric: tabular-nums; }
+.fader { position: relative; width: 24px; height: 170px; border-radius: 5px; background: #1B222B; border: 1px solid var(--app-line); overflow: hidden; }
+.fader:focus-within { outline: 2px solid var(--amber); outline-offset: 2px; }
+.fader .fill { position: absolute; left: 0; right: 0; bottom: 0; background: currentColor; transition: opacity .15s ease; }
+.fader .fill::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: #F6F8FA; }
+.fader input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ns-resize; writing-mode: vertical-lr; direction: rtl; }
+.ch.dim .fill { opacity: .28; }
+.ms { display: flex; gap: 2px; }
+.ms button { width: 19px; height: 20px; padding: 0; font-size: 10px; font-weight: 700; border: 1px solid var(--app-line-strong); border-radius: 4px; background: transparent; color: var(--app-muted); cursor: pointer; }
+.ms button[aria-pressed="true"] { background: var(--app-text); color: var(--app-bg); border-color: var(--app-text); }
+.ch-name { font-size: 10px; color: var(--app-muted); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fx-head { display: flex; justify-content: space-between; padding: 10px 12px 0; font-size: 11px; color: var(--app-muted); }
+.fx-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding: 8px 12px 16px; }
+.fx-grid .fx { min-height: 56px; border: 1px solid rgba(232,102,31,.6); border-radius: 8px; background: transparent; color: var(--app-text); font-size: 11px; line-height: 1.2; padding: 7px 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; text-align: center; }
+.fx-grid .fx svg { width: 14px; height: 14px; color: var(--orange); }
+.fx-grid .fx:hover { background: rgba(232,102,31,.1); }
+.fx-grid .fx.fired { background: rgba(232,102,31,.32); }
+@media (max-width: 860px) { .demo { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .legend div { grid-template-columns: 1fr; gap: 2px; } .legend dd { padding-left: 38px; } }
 
 /* How it works */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
-.step { position: relative; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px; background: var(--bg); }
-.step-num { width: 34px; height: 34px; border-radius: 50%; background: var(--amber); color: #0A0F1B; display: grid; place-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; margin-bottom: 14px; }
+.step { position: relative; padding: 0 24px 0 0; }
+.step::before { content: ""; position: absolute; top: 16px; left: 44px; right: 8px; height: 2px; background: var(--amber-border); }
+.step:last-child::before { display: none; }
+.steps .step-num { position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--bg); }
+.step-num { width: 34px; height: 34px; border-radius: 50%; background: var(--amber); color: #0A0F1B; display: grid; place-items: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; margin-bottom: 14px; }
 .step h3 { font-size: 1.15rem; margin-bottom: 6px; }
 .step p { color: var(--muted); font-size: .95rem; }
 .step .eg { display: block; margin-top: 10px; font-size: .85rem; color: var(--text); opacity: .85; }
-@media (max-width: 960px) { .steps { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+
+@media (max-width: 760px) {
+  .steps { grid-template-columns: 1fr; gap: 0; }
+  .step { padding: 0 0 28px 54px; }
+  .steps .step-num { position: absolute; left: 0; top: 0; margin: 0; }
+  .step::before { top: 40px; bottom: 4px; left: 16px; right: auto; width: 2px; height: auto; }
+}
 
 /* Feature rows */
 .feature { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 72px); align-items: center; }
 .feature + .feature { margin-top: clamp(64px, 10vw, 112px); }
 .feature.flip .feature-copy { order: 2; }
-.feature h3 { font-size: clamp(1.5rem, 3.6vw, 2.1rem); }
+.feature h3 { font-size: clamp(1.8rem, 4.2vw, 2.5rem); }
 .feature-copy p { color: var(--muted); margin-top: 14px; font-size: 1.03rem; }
+.feature-copy p strong { color: var(--text); font-weight: 600; }
 .checks { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; }
 .checks li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; }
 .checks svg { width: 20px; height: 20px; color: var(--amber); margin-top: 3px; }
@@ -296,13 +599,13 @@ input[type=range] { width: 100%; margin: 0; height: 22px; background: transparen
 .prices { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 860px; }
 .price { border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 3vw, 30px); background: var(--bg); }
 .price.hl { border-color: var(--amber-border); }
-.price .tag { font-family: 'Space Grotesk', sans-serif; font-size: .85rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
-.price .big { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; margin-top: 6px; }
+.price .tag { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: .85rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+.price .big { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 700; margin-top: 6px; }
 .price .big small { font-size: 1rem; color: var(--muted); font-weight: 500; }
 .price ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 9px; }
 .price li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; color: var(--muted); }
 .price li svg { width: 18px; height: 18px; color: var(--amber); margin-top: 4px; }
-.no-sub { margin-top: 18px; display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 10px; background: var(--amber-dim); border: 1px solid var(--amber-border); font-weight: 600; }
+.no-sub { margin-top: 22px; display: inline-flex; align-items: center; gap: 10px; font-weight: 600; }
 .no-sub svg { width: 20px; height: 20px; color: var(--amber); flex: none; }
 @media (max-width: 680px) { .prices { grid-template-columns: 1fr; } }
 
@@ -314,25 +617,27 @@ input[type=range] { width: 100%; margin: 0; height: 22px; background: transparen
 .get-step p { color: var(--muted); font-size: .95rem; }
 .get-step.key p { color: var(--text); }
 .get-step .btn { margin-top: auto; width: 100%; }
-.wait { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--amber); }
+.wait { display: flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--amber); }
 .wait svg { width: 30px; height: 30px; }
 .get-help { margin-top: 20px; color: var(--muted); font-size: .93rem; max-width: 760px; }
 @media (max-width: 860px) { .get-steps { grid-template-columns: 1fr; } }
 
 /* FAQ */
-.faq { max-width: 820px; display: grid; gap: 10px; }
-.faq details { border: 1px solid var(--line); border-radius: 12px; background: var(--bg); }
-.faq summary { cursor: pointer; list-style: none; padding: 18px 52px 18px 20px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.05rem; position: relative; border-radius: 12px; }
+.faq { max-width: 820px; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 18px 44px 18px 0; font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 600; font-size: 1.05rem; position: relative; border-radius: 12px; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: ""; position: absolute; right: 22px; top: 50%; width: 10px; height: 10px; border-right: 2px solid var(--amber); border-bottom: 2px solid var(--amber); transform: translateY(-70%) rotate(45deg); transition: transform .2s ease; }
+.faq summary::after { content: ""; position: absolute; right: 8px; top: 50%; width: 10px; height: 10px; border-right: 2px solid var(--amber); border-bottom: 2px solid var(--amber); transform: translateY(-70%) rotate(45deg); transition: transform .2s ease; }
 .faq details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
-.faq .ans { padding: 0 20px 18px; color: var(--muted); }
+.faq .ans { padding: 0 0 18px; color: var(--muted); }
 .faq .ans p + p { margin-top: 10px; }
 
 /* Final CTA + footer */
 .final { text-align: center; }
 .final h2 { max-width: 760px; margin-inline: auto; }
 .final .lead { max-width: 620px; margin-inline: auto; }
+.fb-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 24px; margin-top: 26px; }
+.fb-mail { font-weight: 700; font-size: 1.05rem; color: var(--amber); text-underline-offset: 4px; }
 .final .beta-actions { max-width: 560px; margin: 28px auto 0; }
 footer { background: var(--footer-bg); border-top: 1px solid var(--line); padding-block: 36px; color: var(--muted); font-size: .9rem; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; }
@@ -386,6 +691,12 @@ footer a:hover { color: var(--text); }
   <symbol id="i-box" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></symbol>
   <symbol id="i-globe" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 21c.8-4 3.8-6 7.5-6s6.7 2 7.5 6"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 7.5c2-1.6 4-1.6 6 0s4 1.6 6 0 4-1.6 6 0M3 12c2-1.6 4-1.6 6 0s4 1.6 6 0 4-1.6 6 0M3 16.5c2-1.6 4-1.6 6 0s4 1.6 6 0 4-1.6 6 0"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 18V5l11-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM20 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 2 4 14h7l-1.5 8L19 10h-7z"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path fill="currentColor" d="M4 17.3V20h2.7L17.8 8.9l-2.7-2.7zM20.7 6a1 1 0 0 0 0-1.4l-1.3-1.3a1 1 0 0 0-1.4 0l-1.1 1.1 2.7 2.7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4"/></symbol>
 </svg>
 
@@ -397,6 +708,7 @@ footer a:hover { color: var(--text); }
     </a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#how"><span data-en>How it works</span><span data-es>Cómo funciona</span></a>
+      <a href="#screens"><span data-en>Screenshots</span><span data-es>Capturas</span></a>
       <a href="#pricing"><span data-en>Price</span><span data-es>Precio</span></a>
       <a href="#get"><span data-en>Get it</span><span data-es>Descargar</span></a>
       <a href="#faq"><span data-en>FAQ</span><span data-es>Preguntas</span></a>
@@ -412,24 +724,20 @@ footer a:hover { color: var(--text); }
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">
-        <span class="pill pill-amber"><span data-en>Android · Beta</span><span data-es>Android · Beta</span></span>
-        <span class="pill"><span data-en>Free, with ads</span><span data-es>Gratis, con anuncios</span></span>
-        <span class="pill"><span data-en>Plays offline</span><span data-es>Funciona sin internet</span></span>
-      </div>
       <h1>
         <span data-en>A sound board for your <em>game table</em>.</span>
         <span data-es>Una mesa de sonido para tus <em>partidas</em>.</span>
       </h1>
       <p class="sub">
-        <span data-en>Ambience, music and sound effects for <strong>board games and tabletop RPGs</strong>. Set up the sounds for each game once, then play them with one tap during the session — no YouTube searching, no tabbing out.</span>
-        <span data-es>Ambientes, música y efectos de sonido para <strong>juegos de mesa y rol</strong>. Prepara los sonidos de cada juego una vez y luego reprodúcelos con un toque durante la partida — sin buscar en YouTube ni cambiar de app.</span>
+        <span data-en>Ambience, music and sound effects for <strong>board games and tabletop RPGs</strong>. Set up the sounds for each game once, then play them with one tap during the session. No searching YouTube, no switching apps.</span>
+        <span data-es>Ambientes, música y efectos de sonido para <strong>juegos de mesa y rol</strong>. Prepara los sonidos de cada juego una vez y luego reprodúcelos con un toque durante la partida. Sin buscar en YouTube ni cambiar de app.</span>
       </p>
-      <div class="cats">
-        <span class="cat"><span class="dot dot-cyan" aria-hidden="true"></span><span data-en>Ambience — rain, tavern, forest</span><span data-es>Ambiente — lluvia, taberna, bosque</span></span>
-        <span class="cat"><span class="dot dot-violet" aria-hidden="true"></span><span data-en>Music</span><span data-es>Música</span></span>
-        <span class="cat"><span class="dot dot-orange" aria-hidden="true"></span><span data-en>Effects — doors, swords, thunder</span><span data-es>Efectos — puertas, espadas, truenos</span></span>
+      <div class="kchips">
+        <span class="kchip amb"><svg aria-hidden="true"><use href="#i-waves"/></svg><b>24</b><span data-en>Ambience</span><span data-es>Ambiente</span></span>
+        <span class="kchip mus"><svg aria-hidden="true"><use href="#i-note"/></svg><b>35</b><span data-en>Music</span><span data-es>Música</span></span>
+        <span class="kchip fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg><b>82</b><span data-en>Effects</span><span data-es>Efectos</span></span>
       </div>
+      <p class="hero-status"><span data-en><b>Free</b>, with ads · Android only · In beta · Plays offline</span><span data-es><b>Gratis</b>, con anuncios · Solo Android · En beta · Funciona sin internet</span></p>
 
       <div class="beta-box" role="note">
         <div class="beta-head">
@@ -455,85 +763,198 @@ footer a:hover { color: var(--text); }
 
     <!-- Hero mockup: a bundle open at the table -->
     <div>
-      <div class="phone" role="group" data-aria-en="Preview of the app playing a bundle. Interactive, without sound." data-aria-es="Vista previa de la app reproduciendo un bundle. Interactiva, sin sonido.">
+      <div class="layout-picker">
+        <div class="lp-top">
+          <span class="lp-label" id="lpLabel"><span data-en>Some of the more than 10 layouts</span><span data-es>Algunos de los más de 10 diseños</span></span>
+          <button class="lp-pause" type="button" aria-pressed="false" data-aria-en="Pause the layout carousel" data-aria-es="Pausar el carrusel de diseños"><svg class="i-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg></button>
+        </div>
+        <div class="lp-tabs" role="tablist" aria-labelledby="lpLabel">
+          <button class="lp-tab" type="button" role="tab" aria-selected="true" data-target="pads"><span data-en>Big pads</span><span data-es>Pads grandes</span></button>
+          <button class="lp-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-target="compact"><span data-en>Compact</span><span data-es>Compacto</span></button>
+          <button class="lp-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-target="list"><span data-en>List</span><span data-es>Lista</span></button>
+          <button class="lp-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-target="grouped"><span data-en>Grouped</span><span data-es>Agrupado</span></button>
+          <button class="lp-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-target="console"><span data-en>Console</span><span data-es>Consola</span></button>
+          <button class="lp-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-target="hex"><span data-en>Hex map</span><span data-es>Mapa Hex</span></button>
+        </div>
+        <div class="lp-progress" aria-hidden="true"><i></i></div>
+      </div>
+      <div class="phone" id="heroPhone" role="group" data-aria-en="Interactive preview of the Heat bundle, without sound" data-aria-es="Vista previa interactiva del bundle Heat, sin sonido">
         <div class="screen">
-          <div class="statusbar"><span>21:47</span><span class="cam" aria-hidden="true"></span><span>100%</span></div>
-          <div class="app-top">
-            <svg class="ico" aria-hidden="true"><use href="#i-back"/></svg>
-            <span class="title">Dungeon Crawl</span>
-            <button class="stop-all" type="button" data-stop-all="hero"><span data-en>Stop all</span><span data-es>Detener todo</span></button>
+          <div class="statusbar"><span>01:17</span><span class="cam" aria-hidden="true"></span><span>21%</span></div>
+          <div class="app-top real">
+            <span class="back"><svg aria-hidden="true"><use href="#i-back"/></svg><span data-en>Back</span><span data-es>Atrás</span></span>
+            <span class="title">Heat</span>
+            <span class="top-btn" aria-hidden="true"><svg><use href="#i-mix"/></svg><span data-en>Mixer</span><span data-es>Mezclador</span></span>
+            <span class="top-btn edit" aria-hidden="true"><span data-en>Edit</span><span data-es>Editar</span></span>
           </div>
-          <div class="app-body">
-            <span class="app-label"><span data-en>Scenes</span><span data-es>Escenas</span></span>
-            <div class="scenes" data-scenes="hero">
-              <button class="scene" type="button" aria-pressed="true">
-                <span class="bar" style="background:var(--cyan)" aria-hidden="true"></span>
-                <span class="meta"><span class="scene-name"><span data-en>Tavern night</span><span data-es>Noche en la taberna</span></span><span class="scene-sub"><span data-en>Mix · 4 layers</span><span data-es>Mezcla · 4 capas</span></span></span>
-                <span class="state" aria-hidden="true"><svg class="play-ico"><use href="#i-play"/></svg><span class="eq"><i></i><i></i><i></i></span></span>
-              </button>
-              <button class="scene" type="button" aria-pressed="false">
-                <span class="bar" style="background:var(--cyan)" aria-hidden="true"></span>
-                <span class="meta"><span class="scene-name"><span data-en>Forest road</span><span data-es>Camino del bosque</span></span><span class="scene-sub"><span data-en>Mix · 3 layers</span><span data-es>Mezcla · 3 capas</span></span></span>
-                <span class="state" aria-hidden="true"><svg class="play-ico"><use href="#i-play"/></svg><span class="eq"><i></i><i></i><i></i></span></span>
-              </button>
-              <button class="scene" type="button" aria-pressed="false">
-                <span class="bar" style="background:var(--cyan)" aria-hidden="true"></span>
-                <span class="meta"><span class="scene-name"><span data-en>Dungeon depths</span><span data-es>Profundidades</span></span><span class="scene-sub"><span data-en>Mix · 3 layers</span><span data-es>Mezcla · 3 capas</span></span></span>
-                <span class="state" aria-hidden="true"><svg class="play-ico"><use href="#i-play"/></svg><span class="eq"><i></i><i></i><i></i></span></span>
-              </button>
-              <button class="scene" type="button" aria-pressed="false">
-                <span class="bar" style="background:var(--violet)" aria-hidden="true"></span>
-                <span class="meta"><span class="scene-name"><span data-en>Boss fight</span><span data-es>Jefe final</span></span><span class="scene-sub"><span data-en>Music</span><span data-es>Música</span></span></span>
-                <span class="state" aria-hidden="true"><svg class="play-ico"><use href="#i-play"/></svg><span class="eq"><i></i><i></i><i></i></span></span>
-              </button>
+          <div class="bigpads lp-panel" id="heroPads" data-layout="pads">
+            <button class="bp amb" type="button" aria-pressed="true" data-aria-en="Play Background" data-aria-es="Reproducir Background"><span class="bp-tile"><svg class="arc" viewBox="0 0 100 100" aria-hidden="true"><path d="M27 79 A36 36 0 1 1 73 79"/></svg><svg class="bp-ico" aria-hidden="true"><use href="#i-waves"/></svg></span><span class="bp-name">Background</span></button>
+            <button class="bp amb" type="button" aria-pressed="false" data-aria-en="Play Final Lap" data-aria-es="Reproducir Final Lap"><span class="bp-tile"><svg class="arc" viewBox="0 0 100 100" aria-hidden="true"><path d="M27 79 A36 36 0 1 1 73 79"/></svg><svg class="bp-ico" aria-hidden="true"><use href="#i-waves"/></svg></span><span class="bp-name">Final Lap</span></button>
+            <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Too Fast In Corner</span></button>
+            <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Gear Shift</span></button>
+            <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Finish Upgrade Draft</span></button>
+            <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Overtake</span></button>
+            <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Ascent Moments</span></button>
+          </div>
+          <div class="lp-panel lp-compact" data-layout="compact" hidden>
+            <button class="bed amb on" type="button" aria-pressed="true" data-aria-en="Play Background" data-aria-es="Reproducir Background"><svg aria-hidden="true"><use href="#i-waves"/></svg><span>Background</span><i style="width:80%"></i></button>
+            <button class="bed amb" type="button" aria-pressed="false" data-aria-en="Play Final Lap" data-aria-es="Reproducir Final Lap"><svg aria-hidden="true"><use href="#i-waves"/></svg><span>Final</span><i style="width:65%"></i></button>
+            <button class="bed fx" type="button" data-aria-en="Play Too Fast In Corner" data-aria-es="Reproducir Too Fast In Corner"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span>Too</span><i style="width:90%"></i></button>
+            <button class="bed fx" type="button" data-aria-en="Play Gear Shift" data-aria-es="Reproducir Gear Shift"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span>Gear</span><i style="width:75%"></i></button>
+            <button class="bed fx" type="button" data-aria-en="Play Finish Upgrade Draft" data-aria-es="Reproducir Finish Upgrade Draft"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span>Finish</span><i style="width:70%"></i></button>
+            <button class="bed fx" type="button" data-aria-en="Play Overtake" data-aria-es="Reproducir Overtake"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span>Overtake</span><i style="width:85%"></i></button>
+            <button class="bed fx" type="button" data-aria-en="Play Ascent Moments" data-aria-es="Reproducir Ascent Moments"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span>Ascent</span><i style="width:60%"></i></button>
+          </div>
+
+          <div class="lp-panel lp-list" data-layout="list" hidden>
+            <div class="bd-row amb sounding"><svg class="bd-ico" aria-hidden="true"><use href="#i-waves"/></svg><span class="bd-txt"><b>Background <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 4 · Ambience › Urban</span><span data-es>aleatorio de 4 · Ambiente › Urban</span></span></span><button class="bd-rowplay" type="button" aria-pressed="true" data-aria-en="Stop Background" data-aria-es="Detener Background"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+            <div class="bd-row amb"><svg class="bd-ico" aria-hidden="true"><use href="#i-waves"/></svg><span class="bd-txt"><b>Final Lap <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 3 · Ambience › Urban</span><span data-es>aleatorio de 3 · Ambiente › Urban</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Final Lap" data-aria-es="Reproducir Final Lap"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+            <div class="bd-row fx"><svg class="bd-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bd-txt"><b>Too Fast In Corner <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 4 · Effects › Vehicles</span><span data-es>aleatorio de 4 · Efectos › Vehicles</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Too Fast In Corner" data-aria-es="Reproducir Too Fast In Corner"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+            <div class="bd-row fx"><svg class="bd-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bd-txt"><b>Gear Shift <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 7 · Effects › Vehicles</span><span data-es>aleatorio de 7 · Efectos › Vehicles</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Gear Shift" data-aria-es="Reproducir Gear Shift"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+            <div class="bd-row fx"><svg class="bd-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bd-txt"><b>Finish Upgrade Draft <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 7 · Effects › Game pieces</span><span data-es>aleatorio de 7 · Efectos › Game pieces</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Finish Upgrade Draft" data-aria-es="Reproducir Finish Upgrade Draft"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+            <div class="bd-row fx"><svg class="bd-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bd-txt"><b>Overtake <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 8 · Effects › Vehicles</span><span data-es>aleatorio de 8 · Efectos › Vehicles</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Overtake" data-aria-es="Reproducir Overtake"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+            <div class="bd-row fx"><svg class="bd-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bd-txt"><b>Ascent Moments <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 5 · Effects › Fanfares and crowds</span><span data-es>aleatorio de 5 · Efectos › Fanfares and crowds</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Ascent Moments" data-aria-es="Reproducir Ascent Moments"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+          </div>
+
+          <div class="lp-panel lp-grouped" data-layout="grouped" hidden>
+            <span class="grp-head c-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg><span data-en>AMBIENCE · 2</span><span data-es>AMBIENTE · 2</span></span>
+            <div class="grp-grid">
+              <button class="bp amb" type="button" aria-pressed="true" data-aria-en="Play Background" data-aria-es="Reproducir Background"><span class="bp-tile"><svg class="arc" viewBox="0 0 100 100" aria-hidden="true"><path d="M27 79 A36 36 0 1 1 73 79"/></svg><svg class="bp-ico" aria-hidden="true"><use href="#i-waves"/></svg></span><span class="bp-name">Background</span></button>
+              <button class="bp amb" type="button" aria-pressed="false" data-aria-en="Play Final Lap" data-aria-es="Reproducir Final Lap"><span class="bp-tile"><svg class="arc" viewBox="0 0 100 100" aria-hidden="true"><path d="M27 79 A36 36 0 1 1 73 79"/></svg><svg class="bp-ico" aria-hidden="true"><use href="#i-waves"/></svg></span><span class="bp-name">Final Lap</span></button>
             </div>
-            <span class="app-label" style="margin-top:4px"><span data-en>Effects</span><span data-es>Efectos</span></span>
-            <div class="pads">
-              <button class="pad" type="button"><span data-en>Door creak</span><span data-es>Puerta</span></button>
-              <button class="pad" type="button"><span data-en>Sword clash</span><span data-es>Espadas</span></button>
-              <button class="pad" type="button"><span data-en>Thunder</span><span data-es>Trueno</span></button>
-              <button class="pad" type="button"><span data-en>Dragon roar</span><span data-es>Rugido</span></button>
-              <button class="pad" type="button"><span data-en>Coins</span><span data-es>Monedas</span></button>
-              <button class="pad" type="button"><span data-en>Bell</span><span data-es>Campana</span></button>
+            <span class="grp-head c-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>EFFECTS · 5</span><span data-es>EFECTOS · 5</span></span>
+            <div class="grp-grid">
+              <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Too Fast In Corner</span></button>
+              <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Gear Shift</span></button>
+              <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Finish Upgrade Draft</span></button>
+              <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Overtake</span></button>
+              <button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">Ascent Moments</span></button>
             </div>
-            <div class="now-playing" data-now="hero" aria-live="polite">
-              <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="np-text"><span class="np-label"><span data-en>Now playing:</span><span data-es>Sonando:</span></span> <b class="np-name"><span data-en>Tavern night</span><span data-es>Noche en la taberna</span></b></span>
+          </div>
+
+          <div class="lp-panel lp-console" data-layout="console" hidden>
+            <div class="mixer two">
+              <div class="ch">
+                <button class="ch-btn" type="button" aria-pressed="true" data-aria-en="Play Background" data-aria-es="Reproducir Background"><svg aria-hidden="true"><use href="#i-waves"/></svg></button>
+                <span class="ch-val" aria-hidden="true">80</span>
+                <div class="fader"><span class="fill" aria-hidden="true"></span><input type="range" min="0" max="100" value="80" data-aria-en="Background volume" data-aria-es="Volumen de Background"></div>
+                <div class="ms"><button type="button" data-mute aria-pressed="false" data-aria-en="Mute Background" data-aria-es="Silenciar Background">M</button><button type="button" data-solo aria-pressed="false" data-aria-en="Solo Background" data-aria-es="Solo Background">S</button></div>
+                <span class="ch-name">Backgr</span>
+              </div>
+              <div class="ch">
+                <button class="ch-btn" type="button" aria-pressed="false" data-aria-en="Play Final Lap" data-aria-es="Reproducir Final Lap"><svg aria-hidden="true"><use href="#i-waves"/></svg></button>
+                <span class="ch-val" aria-hidden="true">65</span>
+                <div class="fader"><span class="fill" aria-hidden="true"></span><input type="range" min="0" max="100" value="65" data-aria-en="Final Lap volume" data-aria-es="Volumen de Final Lap"></div>
+                <div class="ms"><button type="button" data-mute aria-pressed="false" data-aria-en="Mute Final Lap" data-aria-es="Silenciar Final Lap">M</button><button type="button" data-solo aria-pressed="false" data-aria-en="Solo Final Lap" data-aria-es="Solo Final Lap">S</button></div>
+                <span class="ch-name">Final</span>
+              </div>
+            </div>
+            <div class="fx-head"><span><span data-en>Sound effects</span><span data-es>Efectos de sonido</span></span><span><span data-en>5 effects</span><span data-es>5 efectos</span></span></div>
+            <div class="fx-chips" aria-hidden="true"><span class="on"><span data-en>All</span><span data-es>Todo</span></span><span>Vehicles</span><span>Game pieces</span></div>
+            <div class="fx-grid four">
+              <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Too Fast In Corner</button>
+              <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Gear Shift</button>
+              <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Finish Upgrade Draft</button>
+              <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Overtake</button>
+              <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Ascent Moments</button>
+            </div>
+          </div>
+          <div class="lp-panel lp-hex" data-layout="hex" data-title="Cyclades" hidden>
+            <div class="hx-chips" aria-hidden="true"><span class="sel">&#10003; <span data-en>Islands</span><span data-es>Islas</span></span><span><span data-en>Battle</span><span data-es>Batalla</span></span></div>
+            <div class="hx-chips threat" role="group" data-aria-en="Threat level" data-aria-es="Nivel de amenaza">
+              <button type="button" class="sel" aria-pressed="true">Always</button>
+              <button type="button" aria-pressed="false">Calm</button>
+              <button type="button" aria-pressed="false">Tense</button>
+              <button type="button" aria-pressed="false">Danger</button>
+            </div>
+            <div class="hx-strip" id="hxStrip" aria-live="polite"></div>
+            <div class="hx-area"><div class="hx-grid" id="hxGrid"></div></div>
+            <div class="hx-fx" id="hxFx" hidden>
+              <span class="hx-fx-label"><span data-en>ONE-SHOTS</span><span data-es>DISPAROS ÚNICOS</span></span>
+              <div class="hx-fx-row" id="hxFxRow"></div>
             </div>
           </div>
         </div>
       </div>
-      <p class="mock-note"><span data-en>Tap the scenes and pads. Preview only, no sound. Names are examples.</span><span data-es>Toca las escenas y botones. Solo vista previa, sin sonido. Los nombres son ejemplos.</span></p>
+      <p class="mock-note"><span data-en>Layouts change on their own; pick one to stop. Tap the sounds; no audio. Heat is a real bundle for the racing game. The hex map uses example rooms with sounds from the Cyclades bundle.</span><span data-es>Los diseños cambian solos; elige uno para detenerlos. Toca los sonidos; no hay audio. Heat es un bundle real para el juego de carreras. El Mapa Hex usa habitaciones de ejemplo con sonidos del bundle Cyclades.</span></p>
     </div>
   </div>
 </section>
 
 <!-- 2. PROBLEM -> SOLUTION -->
 <section class="alt" id="why">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker"><span data-en>Why</span><span data-es>Por qué</span></span>
-      <h2><span data-en>Good sound makes the game. Managing it shouldn't break the game.</span><span data-es>El buen sonido mejora la partida. Manejarlo no debería interrumpirla.</span></h2>
+  <div class="wrap demo">
+    <div class="demo-copy">
+      <h2><span data-en>The bundle player</span><span data-es>El reproductor de bundles</span></h2>
+      <p class="lead"><span data-en>This is a real bundle from the app, made for Cyclades, in the mixer layout. Each ambience and music track has its own fader, so you can bring the waves up or the army down while you play. Effects sit below as buttons for the moments you want to mark.</span><span data-es>Este es un bundle real de la app, hecho para Cyclades, en el diseño de mezclador. Cada pista de ambiente y música tiene su propio fader, así que puedes subir el oleaje o bajar el ejército mientras juegas. Los efectos están abajo como botones para los momentos que quieras marcar.</span></p>
+      <dl class="legend">
+        <div><dt><span class="lg-ico" aria-hidden="true"><svg><use href="#i-waves"/></svg></span><span data-en>Track icon</span><span data-es>Ícono de pista</span></dt><dd><span data-en>Start or stop that track</span><span data-es>Inicia o detiene esa pista</span></dd></div>
+        <div><dt><span class="lg-fader" aria-hidden="true"></span><span data-en>Fader</span><span data-es>Fader</span></dt><dd><span data-en>Volume of the track</span><span data-es>Volumen de la pista</span></dd></div>
+        <div><dt><span class="lg-ms" aria-hidden="true">M S</span><span data-en>Mute / Solo</span><span data-es>Silenciar / Solo</span></dt><dd><span data-en>Silence a track, or hear only that one</span><span data-es>Silencia una pista o escucha solo esa</span></dd></div>
+        <div><dt><span class="lg-ico fx-c" aria-hidden="true"><svg><use href="#i-bolt"/></svg></span><span data-en>Effect button</span><span data-es>Botón de efecto</span></dt><dd><span data-en>Plays a one-shot sound, like the battle horn</span><span data-es>Reproduce un sonido corto, como el cuerno de batalla</span></dd></div>
+      </dl>
     </div>
-    <div class="vs">
-      <div class="vs-card bad">
-        <h3><svg aria-hidden="true"><use href="#i-x"/></svg><span data-en>The usual way</span><span data-es>Lo de siempre</span></h3>
-        <ul>
-          <li><span data-en>Searching YouTube for "tavern ambience" while everyone waits.</span><span data-es>Buscar "ambiente de taberna" en YouTube mientras todos esperan.</span></li>
-          <li><span data-en>Tabbing out mid-scene to skip a track or find a thunder clap.</span><span data-es>Salir de la escena para saltar una canción o encontrar un trueno.</span></li>
-          <li><span data-en>One long playlist that can't follow the story from tavern to ambush.</span><span data-es>Una lista larga que no sigue la historia de la taberna a la emboscada.</span></li>
-          <li><span data-en>No signal at a friend's place, no soundtrack.</span><span data-es>Sin señal en casa de un amigo, sin música.</span></li>
-        </ul>
+    <div>
+      <div class="phone" id="bundleDemo" role="group" data-aria-en="Interactive preview of the bundle player in mixer layout, without sound" data-aria-es="Vista previa interactiva del reproductor de bundles en diseño de mezclador, sin sonido">
+        <div class="screen">
+          <div class="statusbar"><span>01:17</span><span class="cam" aria-hidden="true"></span><span>21%</span></div>
+          <div class="app-top">
+            <svg class="ico" aria-hidden="true"><use href="#i-back"/></svg>
+            <span class="title">Cyclades</span>
+            <span class="top-btn" aria-hidden="true"><svg><use href="#i-mix"/></svg><span data-en>Mixer</span><span data-es>Mezclador</span></span>
+            <span class="top-btn edit" aria-hidden="true"><span data-en>Edit</span><span data-es>Editar</span></span>
+          </div>
+          <div class="mixer">
+              <div class="ch">
+                <button class="ch-btn" type="button" aria-pressed="false" data-aria-en="Play Army" data-aria-es="Reproducir Ejército"><svg aria-hidden="true"><use href="#i-waves"/></svg></button>
+                <span class="ch-val" aria-hidden="true">100</span>
+                <div class="fader"><span class="fill" aria-hidden="true"></span><input type="range" min="0" max="100" value="100" data-aria-en="Army volume" data-aria-es="Volumen de Ejército"></div>
+                <div class="ms"><button type="button" data-mute aria-pressed="false" data-aria-en="Mute Army" data-aria-es="Silenciar Ejército">M</button><button type="button" data-solo aria-pressed="false" data-aria-en="Solo Army" data-aria-es="Solo Ejército">S</button></div>
+                <span class="ch-name"><span data-en>Army</span><span data-es>Ejército</span></span>
+              </div>              <div class="ch">
+                <button class="ch-btn" type="button" aria-pressed="false" data-aria-en="Play Conflict" data-aria-es="Reproducir Conflicto"><svg aria-hidden="true"><use href="#i-waves"/></svg></button>
+                <span class="ch-val" aria-hidden="true">77</span>
+                <div class="fader"><span class="fill" aria-hidden="true"></span><input type="range" min="0" max="100" value="77" data-aria-en="Conflict volume" data-aria-es="Volumen de Conflicto"></div>
+                <div class="ms"><button type="button" data-mute aria-pressed="false" data-aria-en="Mute Conflict" data-aria-es="Silenciar Conflicto">M</button><button type="button" data-solo aria-pressed="false" data-aria-en="Solo Conflict" data-aria-es="Solo Conflicto">S</button></div>
+                <span class="ch-name"><span data-en>Conflict</span><span data-es>Conflicto</span></span>
+              </div>              <div class="ch">
+                <button class="ch-btn" type="button" aria-pressed="true" data-aria-en="Play Waves" data-aria-es="Reproducir Oleaje"><svg aria-hidden="true"><use href="#i-waves"/></svg></button>
+                <span class="ch-val" aria-hidden="true">55</span>
+                <div class="fader"><span class="fill" aria-hidden="true"></span><input type="range" min="0" max="100" value="55" data-aria-en="Waves volume" data-aria-es="Volumen de Oleaje"></div>
+                <div class="ms"><button type="button" data-mute aria-pressed="false" data-aria-en="Mute Waves" data-aria-es="Silenciar Oleaje">M</button><button type="button" data-solo aria-pressed="false" data-aria-en="Solo Waves" data-aria-es="Solo Oleaje">S</button></div>
+                <span class="ch-name"><span data-en>Waves</span><span data-es>Oleaje</span></span>
+              </div>              <div class="ch">
+                <button class="ch-btn" type="button" aria-pressed="false" data-aria-en="Play Forest" data-aria-es="Reproducir Bosque"><svg aria-hidden="true"><use href="#i-waves"/></svg></button>
+                <span class="ch-val" aria-hidden="true">76</span>
+                <div class="fader"><span class="fill" aria-hidden="true"></span><input type="range" min="0" max="100" value="76" data-aria-en="Forest volume" data-aria-es="Volumen de Bosque"></div>
+                <div class="ms"><button type="button" data-mute aria-pressed="false" data-aria-en="Mute Forest" data-aria-es="Silenciar Bosque">M</button><button type="button" data-solo aria-pressed="false" data-aria-en="Solo Forest" data-aria-es="Solo Bosque">S</button></div>
+                <span class="ch-name"><span data-en>Forest</span><span data-es>Bosque</span></span>
+              </div>              <div class="ch mus">
+                <button class="ch-btn" type="button" aria-pressed="false" data-aria-en="Play Tzoura" data-aria-es="Reproducir Tzoura"><svg aria-hidden="true"><use href="#i-note"/></svg></button>
+                <span class="ch-val" aria-hidden="true">100</span>
+                <div class="fader"><span class="fill" aria-hidden="true"></span><input type="range" min="0" max="100" value="100" data-aria-en="Tzoura volume" data-aria-es="Volumen de Tzoura"></div>
+                <div class="ms"><button type="button" data-mute aria-pressed="false" data-aria-en="Mute Tzoura" data-aria-es="Silenciar Tzoura">M</button><button type="button" data-solo aria-pressed="false" data-aria-en="Solo Tzoura" data-aria-es="Solo Tzoura">S</button></div>
+                <span class="ch-name"><span data-en>Tzoura</span><span data-es>Tzoura</span></span>
+              </div>              <div class="ch mus">
+                <button class="ch-btn" type="button" aria-pressed="true" data-aria-en="Play Salpin" data-aria-es="Reproducir Salpin"><svg aria-hidden="true"><use href="#i-note"/></svg></button>
+                <span class="ch-val" aria-hidden="true">71</span>
+                <div class="fader"><span class="fill" aria-hidden="true"></span><input type="range" min="0" max="100" value="71" data-aria-en="Salpin volume" data-aria-es="Volumen de Salpin"></div>
+                <div class="ms"><button type="button" data-mute aria-pressed="false" data-aria-en="Mute Salpin" data-aria-es="Silenciar Salpin">M</button><button type="button" data-solo aria-pressed="false" data-aria-en="Solo Salpin" data-aria-es="Solo Salpin">S</button></div>
+                <span class="ch-name"><span data-en>Salpin</span><span data-es>Salpin</span></span>
+              </div>          </div>
+          <div class="fx-head"><span><span data-en>Sound effects</span><span data-es>Efectos de sonido</span></span><span><span data-en>6 effects</span><span data-es>6 efectos</span></span></div>
+          <div class="fx-chips" aria-hidden="true"><span class="on"><span data-en>All</span><span data-es>Todo</span></span><span>Fanfares and crowds</span></div>
+          <div class="fx-grid">
+                <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Celebration chants</span><span data-es>Cantos de celebración</span></button>
+                <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Battle horn</span><span data-es>Cuerno de batalla</span></button>
+                <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Income</span><span data-es>Income</span></button>
+                <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Hero Entrance</span><span data-es>Hero Entrance</span></button>
+                <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Ground Combat</span><span data-es>Ground Combat</span></button>
+                <button class="fx" type="button"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Creature Invocation</span><span data-es>Creature Invocation</span></button>
+          </div>
+        </div>
       </div>
-      <div class="vs-card good">
-        <h3><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en>With Board Game Soundbox</span><span data-es>Con Board Game Soundbox</span></h3>
-        <ul>
-          <li><span data-en>Prepare the sounds for each game before the session, once.</span><span data-es>Prepara los sonidos de cada juego antes de la partida, una sola vez.</span></li>
-          <li><span data-en>Everything for that game on one screen: scenes and effects.</span><span data-es>Todo lo de ese juego en una pantalla: escenas y efectos.</span></li>
-          <li><span data-en>Switch scenes with one tap as the story moves.</span><span data-es>Cambia de escena con un toque a medida que avanza la historia.</span></li>
-          <li><span data-en>Plays offline once it's set up.</span><span data-es>Funciona sin internet una vez configurado.</span></li>
-        </ul>
-      </div>
+      <p class="mock-note"><span data-en>Move the faders and tap the buttons. Preview only, no sound. Based on a real bundle.</span><span data-es>Mueve los faders y toca los botones. Solo vista previa, sin sonido. Basado en un bundle real.</span></p>
     </div>
   </div>
 </section>
@@ -542,21 +963,20 @@ footer a:hover { color: var(--text); }
 <section id="how">
   <div class="wrap">
     <div class="section-head">
-      <span class="kicker"><span data-en>How it works</span><span data-es>Cómo funciona</span></span>
-      <h2><span data-en>Four steps from silence to atmosphere</span><span data-es>Cuatro pasos del silencio a la atmósfera</span></h2>
+      <h2><span data-en>How it works</span><span data-es>Cómo funciona</span></h2>
       <p class="lead"><span data-en>You can stop at step 1 and just play sounds from the library, or go all the way and build a full set for your campaign.</span><span data-es>Puedes quedarte en el paso 1 y solo reproducir sonidos de la biblioteca, o llegar hasta el final y armar un set completo para tu campaña.</span></p>
     </div>
     <ol class="steps" style="list-style:none;margin:0;padding:0">
       <li class="step">
         <div class="step-num" aria-hidden="true">1</div>
         <h3><span data-en>Pick sounds</span><span data-es>Elige sonidos</span></h3>
-        <p><span data-en>Browse the built-in library: ambience, music and one-shot effects. New sounds arrive with updates.</span><span data-es>Explora la biblioteca incluida: ambientes, música y efectos de un toque. Llegan sonidos nuevos con las actualizaciones.</span></p>
+        <p><span data-en>Browse the built-in library of 141 sounds: ambience, music and one-shot effects. New sounds arrive with updates.</span><span data-es>Explora la biblioteca incluida de 141 sonidos: ambientes, música y efectos de un toque. Llegan sonidos nuevos con las actualizaciones.</span></p>
       </li>
       <li class="step">
         <div class="step-num" aria-hidden="true">2</div>
         <h3><span data-en>Mix them</span><span data-es>Mézclalos</span></h3>
         <p><span data-en>Layer several sounds, set each one's volume, pan and loop, and save it as a named mix.</span><span data-es>Combina varios sonidos en capas, ajusta volumen, paneo y loop de cada uno, y guárdalo como una mezcla con nombre.</span></p>
-        <span class="eg"><span data-en>e.g. rain + fireplace + crowd = "Tavern night"</span><span data-es>ej. lluvia + chimenea + gente = "Noche en la taberna"</span></span>
+        <span class="eg"><span data-en>e.g. sword against sword + arrow shot + roaring flames = "Ground Combat"</span><span data-es>ej. espada contra espada + disparo de flecha + llamas rugientes = "Ground Combat"</span></span>
       </li>
       <li class="step">
         <div class="step-num" aria-hidden="true">3</div>
@@ -580,131 +1000,124 @@ footer a:hover { color: var(--text); }
     <!-- Mix -->
     <div class="feature">
       <div class="feature-copy">
-        <span class="kicker"><span data-en>Mix</span><span data-es>Mezclar</span></span>
-        <h3><span data-en>Make the exact atmosphere you have in mind</span><span data-es>Crea exactamente la atmósfera que imaginas</span></h3>
-        <p><span data-en>Stack ambience, music and effects into one mix. Each layer has its own volume, pan and loop, so the rain sits behind the crowd and the lute plays softly on one side.</span><span data-es>Combina ambientes, música y efectos en una sola mezcla. Cada capa tiene su propio volumen, paneo y loop: la lluvia de fondo, la gente al frente y el laúd suave a un lado.</span></p>
-        <ul class="checks">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Per-track volume, pan and loop</span><span data-es>Volumen, paneo y loop por pista</span></span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Save it with a name and reuse it in any bundle</span><span data-es>Guárdala con un nombre y úsala en cualquier bundle</span></span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Built from the in-app library (you can't upload your own audio)</span><span data-es>Se arma con la biblioteca de la app (no puedes subir tu propio audio)</span></span></li>
-        </ul>
+        <span class="tab-chip"><svg aria-hidden="true"><use href="#i-mix"/></svg>Mix</span>
+        <h3><span data-en>Combine sounds into your own mixes</span><span data-es>Combina sonidos en tus propias mezclas</span></h3>
+        <p><span data-en>Place sounds on a timeline to build one the library doesn't have. This mix, Ground Combat, layers clashing swords, an arrow and roaring flames into four seconds of battle. Each clip has its own fades, speed, loops and random repeat. Save the mix with a name and use it in any bundle. Everything comes from the built-in library. <strong>You can't upload your own audio</strong>, but <strong>you can request a sound that's missing</strong>.</span><span data-es>Coloca sonidos en una línea de tiempo para crear uno que la biblioteca no tiene. Esta mezcla, Ground Combat, combina espadas, una flecha y llamas en cuatro segundos de batalla. Cada clip tiene sus propios fundidos, velocidad, repeticiones y repetición aleatoria. Guarda la mezcla con un nombre y úsala en cualquier bundle. Todo sale de la biblioteca incluida. <strong>No puedes subir tu propio audio</strong>, pero <strong>puedes pedir un sonido que falte</strong>.</span></p>
       </div>
       <div>
-        <div class="phone" role="group" data-aria-en="Preview of the mix editor. Interactive, without sound." data-aria-es="Vista previa del editor de mezclas. Interactiva, sin sonido.">
-          <div class="screen">
-            <div class="statusbar"><span>18:02</span><span class="cam" aria-hidden="true"></span><span>86%</span></div>
-            <div class="app-top"><span class="title"><span data-en>Tavern night</span><span data-es>Noche en la taberna</span></span><span class="kind kind-amb"><span data-en>Ambience</span><span data-es>Ambiente</span></span></div>
-            <div class="app-body">
-              <div class="track">
-                <div class="track-head"><span class="dot dot-cyan" aria-hidden="true"></span><span class="track-name"><span data-en>Tavern crowd</span><span data-es>Gente en la taberna</span></span>
-                  <button class="loop" type="button" aria-pressed="true"><svg aria-hidden="true"><use href="#i-loop"/></svg>Loop</button></div>
-                <div class="ctrl"><span>Vol</span><input type="range" min="0" max="100" value="80" data-fmt="vol" data-aria-en="Tavern crowd volume" data-aria-es="Volumen de gente en la taberna"><output>80</output></div>
-                <div class="ctrl"><span>Pan</span><input type="range" min="-100" max="100" value="0" data-fmt="pan" data-aria-en="Tavern crowd pan" data-aria-es="Paneo de gente en la taberna"><output>C</output></div>
+        <div class="phone" role="group" data-aria-en="Interactive preview of the mix editor with the Ground Combat mix, without sound" data-aria-es="Vista previa interactiva del editor de mezclas con la mezcla Ground Combat, sin sonido">
+          <div class="screen" id="mixDemo">
+            <div class="statusbar"><span>01:16</span><span class="cam" aria-hidden="true"></span><span>22%</span></div>
+            <div class="app-top real">
+              <span class="back"><svg aria-hidden="true"><use href="#i-back"/></svg>Mixes</span>
+              <span class="title">Ground Combat</span>
+              <span class="top-btn saved" aria-hidden="true"><span data-en>Saved</span><span data-es>Guardado</span></span>
+            </div>
+            <div class="tl-bar">
+              <button class="tl-play" type="button" id="tlPlay" data-aria-en="Play the mix" data-aria-es="Reproducir la mezcla"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button>
+              <span class="tl-time" id="tlTime">0:00.0</span>
+              <span class="tl-spacer"></span>
+              <span class="tl-add" aria-hidden="true">+</span>
+              <span class="tl-more" aria-hidden="true">&#8942;</span>
+            </div>
+            <div class="timeline">
+              <div class="tl-area"><span class="playhead" id="playhead"></span></div>
+              <div class="lane"><span class="lane-name"><span data-en>Sword clash</span><span data-es>Espada contra espada</span></span><div class="lane-track"><button class="clip fx" type="button" style="left:44%;width:36%" data-start="44" data-end="80" data-name-en="Sword clash" data-name-es="Espada contra espada" data-kind="fx" data-clips="5" data-fadein="0" data-fadeout="2" data-speed="4" data-loops="1" data-random="0"></button></div></div>
+              <div class="lane sub"><span class="lane-name"></span><div class="lane-track"><span class="bar fx" style="left:6%;width:48%"></span><span class="bar fx" style="left:16%;width:46%"></span></div></div>
+              <div class="lane"><span class="lane-name"><span data-en>Arrow shot</span><span data-es>Disparo de flecha</span></span><div class="lane-track"><button class="clip fx" type="button" style="left:16%;width:48%" data-start="16" data-end="64" data-name-en="Arrow shot" data-name-es="Disparo de flecha" data-kind="fx" data-clips="1" data-fadein="0" data-fadeout="0" data-speed="4" data-loops="1" data-random="0"></button></div></div>
+              <div class="lane amb"><span class="lane-name"><span data-en>Roaring flames</span><span data-es>Llamas Rugientes</span></span><div class="lane-track"><button class="clip amb selected" type="button" style="left:30%;width:52%" data-start="30" data-end="82" data-name-en="Roaring flames" data-name-es="Llamas Rugientes" data-kind="amb" data-clips="4" data-fadein="3" data-fadeout="5" data-speed="4" data-loops="1" data-random="0"></button></div></div>
+              <div class="lane sub"><span class="lane-name"></span><div class="lane-track"><span class="bar amb" style="left:0;width:50%"></span></div></div>
+            </div>
+            <div class="clip-panel">
+              <div class="cp-head">
+                <span class="cp-ico" id="cpIco"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>
+                <span class="cp-meta"><b id="cpName"></b><span id="cpKind"></span></span>
+                <span class="cp-ms" aria-hidden="true"><span>M</span><span>S</span></span>
               </div>
-              <div class="track">
-                <div class="track-head"><span class="dot dot-cyan" aria-hidden="true"></span><span class="track-name"><span data-en>Fireplace</span><span data-es>Chimenea</span></span>
-                  <button class="loop" type="button" aria-pressed="true"><svg aria-hidden="true"><use href="#i-loop"/></svg>Loop</button></div>
-                <div class="ctrl"><span>Vol</span><input type="range" min="0" max="100" value="55" data-fmt="vol" data-aria-en="Fireplace volume" data-aria-es="Volumen de chimenea"><output>55</output></div>
-                <div class="ctrl"><span>Pan</span><input type="range" min="-100" max="100" value="-40" data-fmt="pan" data-aria-en="Fireplace pan" data-aria-es="Paneo de chimenea"><output>L40</output></div>
-              </div>
-              <div class="track mus">
-                <div class="track-head"><span class="dot dot-violet" aria-hidden="true"></span><span class="track-name"><span data-en>Lute melody</span><span data-es>Melodía de laúd</span></span>
-                  <button class="loop" type="button" aria-pressed="false"><svg aria-hidden="true"><use href="#i-loop"/></svg>Loop</button></div>
-                <div class="ctrl"><span>Vol</span><input type="range" min="0" max="100" value="35" data-fmt="vol" data-aria-en="Lute melody volume" data-aria-es="Volumen de melodía de laúd"><output>35</output></div>
-                <div class="ctrl"><span>Pan</span><input type="range" min="-100" max="100" value="30" data-fmt="pan" data-aria-en="Lute melody pan" data-aria-es="Paneo de melodía de laúd"><output>R30</output></div>
-              </div>
-              <div class="save-row" aria-hidden="true">
-                <span class="app-btn out"><span data-en>Preview</span><span data-es>Escuchar</span></span>
-                <span class="app-btn fill"><span data-en>Save mix</span><span data-es>Guardar mezcla</span></span>
+              <div class="cp-grid">
+                <div class="stepper" data-key="fadein"><button type="button" data-step="-1" data-aria-en="Shorter fade in" data-aria-es="Fundido de entrada más corto">&minus;</button><span class="st-mid"><span class="st-label"><span data-en>Fade in</span><span data-es>Fundido de entrada</span></span><b class="st-val"></b></span><button type="button" data-step="1" data-aria-en="Longer fade in" data-aria-es="Fundido de entrada más largo">+</button></div>
+                <div class="stepper" data-key="fadeout"><button type="button" data-step="-1" data-aria-en="Shorter fade out" data-aria-es="Fundido de salida más corto">&minus;</button><span class="st-mid"><span class="st-label"><span data-en>Fade out</span><span data-es>Fundido de salida</span></span><b class="st-val"></b></span><button type="button" data-step="1" data-aria-en="Longer fade out" data-aria-es="Fundido de salida más largo">+</button></div>
+                <div class="stepper" data-key="speed"><button type="button" data-step="-1" data-aria-en="Slower" data-aria-es="Más lento">&minus;</button><span class="st-mid"><span class="st-label"><span data-en>Speed</span><span data-es>Velocidad</span></span><b class="st-val"></b></span><button type="button" data-step="1" data-aria-en="Faster" data-aria-es="Más rápido">+</button></div>
+                <div class="stepper" data-key="loops"><button type="button" data-step="-1" data-aria-en="Fewer loops" data-aria-es="Menos repeticiones">&minus;</button><span class="st-mid"><span class="st-label"><span data-en>Loops</span><span data-es>Repeticiones</span></span><b class="st-val"></b></span><button type="button" data-step="1" data-aria-en="More loops" data-aria-es="Más repeticiones">+</button></div>
+                <div class="stepper wide" data-key="random"><button type="button" data-step="-1" data-aria-en="Less random repeat" data-aria-es="Menos repetición aleatoria">&minus;</button><span class="st-mid"><span class="st-label"><span data-en>Random repeat</span><span data-es>Repetición aleatoria</span></span><b class="st-val"></b></span><button type="button" data-step="1" data-aria-en="More random repeat" data-aria-es="Más repetición aleatoria">+</button></div>
               </div>
             </div>
             <div class="tabbar" aria-hidden="true">
               <span class="tab"><svg><use href="#i-lib"/></svg><span data-en>Library</span><span data-es>Biblioteca</span></span>
-              <span class="tab on"><svg><use href="#i-mix"/></svg><span data-en>Mix</span><span data-es>Mezclar</span></span>
+              <span class="tab on"><svg><use href="#i-mix"/></svg>Mix</span>
               <span class="tab"><svg><use href="#i-box"/></svg>Bundles</span>
-              <span class="tab"><svg><use href="#i-globe"/></svg><span data-en>Community</span><span data-es>Comunidad</span></span>
+              <span class="tab"><svg><use href="#i-group"/></svg><span data-en>Community</span><span data-es>Comunidad</span></span>
               <span class="tab"><svg><use href="#i-user"/></svg><span data-en>Me</span><span data-es>Yo</span></span>
             </div>
           </div>
         </div>
-        <p class="mock-note"><span data-en>Illustrative mockup. Sliders move, no sound.</span><span data-es>Maqueta ilustrativa. Los controles se mueven, sin sonido.</span></p>
+        <p class="mock-note"><span data-en>Press play, tap a clip and use + and &minus;. Preview only, no sound. Based on a real mix.</span><span data-es>Presiona reproducir, toca un clip y usa + y &minus;. Solo vista previa, sin sonido. Basado en una mezcla real.</span></p>
       </div>
     </div>
 
     <!-- Bundles -->
     <div class="feature flip">
       <div class="feature-copy">
-        <span class="kicker">Bundles</span>
-        <h3><span data-en>One bundle per game. Everything ready when you sit down.</span><span data-es>Un bundle por juego. Todo listo al sentarte a jugar.</span></h3>
-        <p><span data-en>A bundle groups the mixes and sounds for one game or campaign. Open it at the table and every scene and effect you need is on a single screen, so you can move from the tavern to the ambush without leaving it.</span><span data-es>Un bundle agrupa las mezclas y sonidos de un juego o campaña. Ábrelo en la mesa y tendrás cada escena y efecto en una sola pantalla, para pasar de la taberna a la emboscada sin salir de ella.</span></p>
-        <ul class="checks">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Mixes and single sounds side by side</span><span data-es>Mezclas y sonidos sueltos juntos</span></span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Switch scenes mid-session with one tap</span><span data-es>Cambia de escena en plena partida con un toque</span></span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>A "Stop all" button always within reach</span><span data-es>Un botón "Detener todo" siempre a mano</span></span></li>
-        </ul>
+        <span class="tab-chip"><svg aria-hidden="true"><use href="#i-box"/></svg>Bundles</span>
+        <h3><span data-en>One bundle per game</span><span data-es>Un bundle por juego</span></h3>
+        <p><span data-en>A bundle groups the mixes and single sounds for one game or campaign. Open it at the table and everything is on one screen, so switching scenes mid-session takes <strong>one tap</strong>. There are <strong>more than 10 layouts</strong> for showing the sounds, from simple big pads to a mixer with a fader per track, a rail of game phases or a hex map.</span><span data-es>Un bundle agrupa las mezclas y los sonidos sueltos de un juego o campaña. Ábrelo en la mesa y tendrás todo en una pantalla, así que cambiar de escena en plena partida es <strong>un toque</strong>. Hay <strong>más de 10 diseños</strong> para mostrar los sonidos, desde pads grandes simples hasta un mezclador con un fader por pista, un carril de fases de juego o un mapa de hexágonos.</span></p>
       </div>
       <div>
-        <div class="phone" role="img" data-aria-en="Mockup of the bundle list with four example bundles" data-aria-es="Maqueta de la lista de bundles con cuatro bundles de ejemplo">
-          <div class="screen">
-            <div class="statusbar"><span>19:30</span><span class="cam"></span><span>92%</span></div>
-            <div class="app-top"><span class="title">Bundles</span><svg class="ico"><use href="#i-search"/></svg></div>
-            <div class="app-body">
-              <div class="bundle">
-                <span class="thumb"><i style="background:var(--cyan)"></i><i style="background:var(--cyan)"></i><i style="background:var(--violet)"></i><i style="background:var(--orange)"></i></span>
-                <span class="meta"><b>Dungeon Crawl</b><span><span data-en>4 scenes · 6 effects</span><span data-es>4 escenas · 6 efectos</span></span><span class="split"><i style="flex:3;background:var(--cyan)"></i><i style="flex:1;background:var(--violet)"></i><i style="flex:6;background:var(--orange)"></i></span></span>
-                <span class="play-chip"><svg><use href="#i-play"/></svg></span>
-              </div>
-              <div class="bundle">
-                <span class="thumb"><i style="background:var(--violet)"></i><i style="background:var(--cyan)"></i><i style="background:var(--orange)"></i><i style="background:var(--orange)"></i></span>
-                <span class="meta"><b><span data-en>Haunted Mansion</span><span data-es>Mansión embrujada</span></b><span><span data-en>3 scenes · 8 effects</span><span data-es>3 escenas · 8 efectos</span></span><span class="split"><i style="flex:2;background:var(--cyan)"></i><i style="flex:1;background:var(--violet)"></i><i style="flex:8;background:var(--orange)"></i></span></span>
-                <span class="play-chip"><svg><use href="#i-play"/></svg></span>
-              </div>
-              <div class="bundle">
-                <span class="thumb"><i style="background:var(--cyan)"></i><i style="background:var(--violet)"></i><i style="background:var(--violet)"></i><i style="background:var(--orange)"></i></span>
-                <span class="meta"><b><span data-en>Pirate Seas</span><span data-es>Mares piratas</span></b><span><span data-en>3 scenes · 4 effects</span><span data-es>3 escenas · 4 efectos</span></span><span class="split"><i style="flex:2;background:var(--cyan)"></i><i style="flex:1;background:var(--violet)"></i><i style="flex:4;background:var(--orange)"></i></span></span>
-                <span class="play-chip"><svg><use href="#i-play"/></svg></span>
-              </div>
-              <div class="bundle">
-                <span class="thumb"><i style="background:var(--cyan)"></i><i style="background:var(--orange)"></i><i style="background:var(--cyan)"></i><i style="background:var(--violet)"></i></span>
-                <span class="meta"><b><span data-en>Space Crew</span><span data-es>Tripulación espacial</span></b><span><span data-en>2 scenes · 5 effects</span><span data-es>2 escenas · 5 efectos</span></span><span class="split"><i style="flex:1;background:var(--cyan)"></i><i style="flex:1;background:var(--violet)"></i><i style="flex:5;background:var(--orange)"></i></span></span>
-                <span class="play-chip"><svg><use href="#i-play"/></svg></span>
-              </div>
+        <div class="phone" role="group" data-aria-en="Interactive preview of the details screen of the Heat bundle, without sound" data-aria-es="Vista previa interactiva de la pantalla de detalle del bundle Heat, sin sonido">
+          <div class="screen" id="bundleDetail">
+            <div class="statusbar"><span>01:15</span><span class="cam" aria-hidden="true"></span><span>23%</span></div>
+            <div class="app-top real">
+              <span class="back"><svg aria-hidden="true"><use href="#i-back"/></svg><span data-en>Back</span><span data-es>Atrás</span></span>
+              <span class="title">Bundle</span>
+              <span class="top-btn kebab" aria-hidden="true">&#8942;</span>
             </div>
-            <div class="tabbar">
-              <span class="tab"><svg><use href="#i-lib"/></svg><span data-en>Library</span><span data-es>Biblioteca</span></span>
-              <span class="tab"><svg><use href="#i-mix"/></svg><span data-en>Mix</span><span data-es>Mezclar</span></span>
-              <span class="tab on"><svg><use href="#i-box"/></svg>Bundles</span>
-              <span class="tab"><svg><use href="#i-globe"/></svg><span data-en>Community</span><span data-es>Comunidad</span></span>
-              <span class="tab"><svg><use href="#i-user"/></svg><span data-en>Me</span><span data-es>Yo</span></span>
+            <div class="bd-hero">
+              <span class="bd-cover" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              <span class="bd-meta"><b>Heat</b><span><span data-en>Big pads layout · 7 sounds · Sebastián</span><span data-es>Diseño Pads grandes · 7 sonidos · Sebastián</span></span></span>
+            </div>
+            <div class="bd-split" aria-hidden="true"><i style="flex:2;background:var(--cyan)"></i><i style="flex:5;background:var(--orange)"></i></div>
+            <div class="bd-body">
+              <div class="bd-actions" aria-hidden="true">
+                <span class="bd-play"><svg><use href="#i-play"/></svg><span data-en>Play</span><span data-es>Reproducir</span></span>
+                <span class="bd-edit"><svg><use href="#i-pencil"/></svg></span>
+              </div>
+              <span class="bd-label"><span data-en>Sounds</span><span data-es>Sonidos</span></span>
+              <div class="bd-chips" aria-hidden="true">
+                <span class="c-amb"><svg><use href="#i-waves"/></svg>2 <span data-en>Ambience</span><span data-es>Ambiente</span></span>
+                <span class="c-mus"><svg><use href="#i-note"/></svg>0 <span data-en>Music</span><span data-es>Música</span></span>
+                <span class="c-fx"><svg><use href="#i-bolt"/></svg>5 <span data-en>Effects</span><span data-es>Efectos</span></span>
+              </div>
+              <div class="bd-list">
+                <div class="bd-row amb"><svg class="bd-ico" aria-hidden="true"><use href="#i-waves"/></svg><span class="bd-txt"><b>Background <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 4 · Ambience › Urban</span><span data-es>aleatorio de 4 · Ambiente › Urban</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Background" data-aria-es="Reproducir Background"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+                <div class="bd-row amb"><svg class="bd-ico" aria-hidden="true"><use href="#i-waves"/></svg><span class="bd-txt"><b>Final Lap <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 3 · Ambience › Urban</span><span data-es>aleatorio de 3 · Ambiente › Urban</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Final Lap" data-aria-es="Reproducir Final Lap"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+                <div class="bd-row fx"><svg class="bd-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bd-txt"><b>Too Fast In Corner <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 4 · Effects › Vehicles</span><span data-es>aleatorio de 4 · Efectos › Vehicles</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Too Fast In Corner" data-aria-es="Reproducir Too Fast In Corner"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+                <div class="bd-row fx"><svg class="bd-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bd-txt"><b>Gear Shift <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 7 · Effects › Vehicles</span><span data-es>aleatorio de 7 · Efectos › Vehicles</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Gear Shift" data-aria-es="Reproducir Gear Shift"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+                <div class="bd-row fx"><svg class="bd-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bd-txt"><b>Overtake <em><span data-en>Library box</span><span data-es>Caja de biblioteca</span></em></b><span><span data-en>random of 8 · Effects › Vehicles</span><span data-es>aleatorio de 8 · Efectos › Vehicles</span></span></span><button class="bd-rowplay" type="button" aria-pressed="false" data-aria-en="Play Overtake" data-aria-es="Reproducir Overtake"><svg class="i-p" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-s" aria-hidden="true"><use href="#i-stop"/></svg></button></div>
+              </div>
             </div>
           </div>
         </div>
-        <p class="mock-note"><span data-en>Illustrative mockup. Bundle names are examples.</span><span data-es>Maqueta ilustrativa. Los nombres son ejemplos.</span></p>
+        <p class="mock-note"><span data-en>Tap &#9654; to preview a sound. No audio. This is the real Heat bundle; "random of 4" means the app picks one of four takes each time.</span><span data-es>Toca &#9654; para escuchar un sonido. Sin audio. Es el bundle Heat real; "aleatorio de 4" significa que la app elige una de cuatro tomas cada vez.</span></p>
       </div>
     </div>
 
     <!-- At the table: offline + lock screen -->
     <div class="feature">
       <div class="feature-copy">
-        <span class="kicker"><span data-en>At the table</span><span data-es>En la mesa</span></span>
-        <h3><span data-en>Phone locked, sound still under control</span><span data-es>Teléfono bloqueado, sonido bajo control</span></h3>
-        <p><span data-en>Once a bundle is set up it plays without internet, so a bad signal at a friend's place doesn't matter. And if you need silence fast, the notification has a Stop all button — no need to unlock and find the app.</span><span data-es>Una vez configurado, el bundle funciona sin internet, así que da igual si hay mala señal en casa de un amigo. Y si necesitas silencio rápido, la notificación tiene un botón Detener todo — sin desbloquear ni buscar la app.</span></p>
-        <ul class="checks">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Plays offline once set up</span><span data-es>Funciona sin internet una vez configurado</span></span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Lock-screen notification with Stop all</span><span data-es>Notificación en pantalla de bloqueo con Detener todo</span></span></li>
-        </ul>
+        <h3><span data-en>Offline play and a lock-screen Stop all</span><span data-es>Sin internet y con Parar todo en la pantalla de bloqueo</span></h3>
+        <p><span data-en>Once a bundle is set up it <strong>plays without internet</strong>, so a bad signal at a friend's place doesn't matter. If you need silence fast, the lock-screen notification has a <strong>Stop all</strong> button, so you don't have to unlock the phone and find the app. Many effects also come with several takes that play at random, so the tenth sword clash doesn't sound like the first.</span><span data-es>Una vez configurado, el bundle <strong>funciona sin internet</strong>, así que da igual si hay mala señal en casa de un amigo. Si necesitas silencio rápido, la notificación de la pantalla de bloqueo tiene un botón <strong>Parar todo</strong>, así que no tienes que desbloquear el teléfono ni buscar la app. Además, muchos efectos tienen varias tomas que suenan al azar, así que el décimo choque de espadas no suena igual que el primero.</span></p>
       </div>
       <div>
-        <div class="phone lock" role="img" data-aria-en="Mockup of a lock screen showing the Board Game Soundbox notification with a Stop all button" data-aria-es="Maqueta de la pantalla de bloqueo con la notificación de Board Game Soundbox y el botón Detener todo">
+        <div class="phone lock" role="img" data-aria-en="Mockup of a lock screen showing the Board Game Soundbox notification with a Stop all button" data-aria-es="Maqueta de la pantalla de bloqueo con la notificación de Board Game Soundbox y el botón Parar todo">
           <div class="screen">
             <div class="statusbar"><span></span><span class="cam"></span><span>78%</span></div>
             <div class="clock">22:15</div>
             <div class="date"><span data-en>Saturday · Game night</span><span data-es>Sábado · Noche de juegos</span></div>
             <div class="notif">
               <div class="notif-head"><img class="mini" src="data:image/png;base64,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" alt="">Board Game Soundbox · <span data-en>now</span><span data-es>ahora</span></div>
-              <b>Dungeon Crawl</b>
-              <span class="l2"><span data-en>Playing: Boss fight</span><span data-es>Sonando: Jefe final</span></span><br>
-              <span class="act"><span data-en>STOP ALL</span><span data-es>DETENER TODO</span></span>
+              <b>Heat</b>
+              <span class="l2"><span data-en>Playing in background</span><span data-es>Reproduciendo en segundo plano</span></span><br>
+              <span class="act"><span data-en>STOP ALL</span><span data-es>PARAR TODO</span></span>
             </div>
           </div>
         </div>
@@ -715,88 +1128,102 @@ footer a:hover { color: var(--text); }
     <!-- Community -->
     <div class="feature flip">
       <div class="feature-copy">
-        <span class="kicker"><span data-en>Community</span><span data-es>Comunidad</span></span>
-        <h3><span data-en>Someone may have already built it</span><span data-es>Puede que alguien ya lo haya creado</span></h3>
-        <p><span data-en>Download bundles and mixes other players have shared, rate them, leave a comment, or publish your own. Sign in with your Google account to take part. Shared content is moderated and filtered for offensive words.</span><span data-es>Descarga bundles y mezclas que otros jugadores compartieron, califícalos, deja un comentario o publica los tuyos. Inicia sesión con tu cuenta de Google para participar. El contenido compartido se modera y tiene filtro de palabras ofensivas.</span></p>
-        <ul class="checks">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Publish your bundles and mixes</span><span data-es>Publica tus bundles y mezclas</span></span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Download, rate and comment on others'</span><span data-es>Descarga, califica y comenta los de otros</span></span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><span data-en>Browse and download without an account; sign in with Google to publish, rate or comment</span><span data-es>Explora y descarga sin cuenta; inicia sesión con Google para publicar, calificar o comentar</span></span></li>
-        </ul>
+        <span class="tab-chip"><svg aria-hidden="true"><use href="#i-group"/></svg><span data-en>Community</span><span data-es>Comunidad</span></span>
+        <h3><span data-en>Share and download bundles</span><span data-es>Comparte y descarga bundles</span></h3>
+        <p><span data-en>Download bundles and mixes other players have shared, or publish your own. You can <strong>browse and download without an account</strong>. Rating, commenting and publishing need a Google sign-in. Shared content is moderated and filtered for offensive words.</span><span data-es>Descarga bundles y mezclas que otros jugadores compartieron, o publica los tuyos. Puedes <strong>explorar y descargar sin cuenta</strong>. Calificar, comentar y publicar requieren iniciar sesión con Google. El contenido compartido se modera y tiene filtro de palabras ofensivas.</span></p>
       </div>
       <div>
-        <div class="phone" role="group" data-aria-en="Preview of the community feed with example bundles. Interactive." data-aria-es="Vista previa de la comunidad con bundles de ejemplo. Interactiva.">
-          <div class="screen">
-            <div class="statusbar"><span>20:10</span><span class="cam" aria-hidden="true"></span><span>64%</span></div>
-            <div class="app-top"><span class="title"><span data-en>Community</span><span data-es>Comunidad</span></span><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg></div>
-            <div class="app-body">
-              <div class="post">
-                <div class="post-top"><span class="avatar" style="background:var(--cyan)" aria-hidden="true">GM</span><span class="who"><span data-en>by example_gm · Bundle</span><span data-es>por example_gm · Bundle</span></span></div>
-                <h4><span data-en>Haunted Manor Night</span><span data-es>Noche en la mansión</span></h4>
-                <p><span data-en>Creaky halls, storm outside, whispers. 3 scenes, 8 effects.</span><span data-es>Pasillos que crujen, tormenta, susurros. 3 escenas, 8 efectos.</span></p>
-                <div class="post-foot"><span class="stars" aria-hidden="true">★★★★☆</span><span><span data-en>5 comments</span><span data-es>5 comentarios</span></span>
-                  <button class="dl" type="button"><span class="idle"><span data-en>Download</span><span data-es>Descargar</span></span><span class="done"><span data-en>Saved</span><span data-es>Guardado</span></span></button></div>
-              </div>
-              <div class="post">
-                <div class="post-top"><span class="avatar" style="background:var(--violet)" aria-hidden="true">RP</span><span class="who"><span data-en>by example_player · Mix</span><span data-es>por example_player · Mezcla</span></span></div>
-                <h4><span data-en>Rainy harbor</span><span data-es>Puerto lluvioso</span></h4>
-                <p><span data-en>Waves, gulls and rope creaks for sea adventures.</span><span data-es>Olas, gaviotas y cuerdas crujiendo para aventuras en el mar.</span></p>
-                <div class="post-foot"><span class="stars" aria-hidden="true">★★★★★</span><span><span data-en>2 comments</span><span data-es>2 comentarios</span></span>
-                  <button class="dl" type="button"><span class="idle"><span data-en>Download</span><span data-es>Descargar</span></span><span class="done"><span data-en>Saved</span><span data-es>Guardado</span></span></button></div>
-              </div>
-              <div class="post">
-                <div class="post-top"><span class="avatar" style="background:var(--orange)" aria-hidden="true">BG</span><span class="who"><span data-en>by example_host · Bundle</span><span data-es>por example_host · Bundle</span></span></div>
-                <h4><span data-en>Co-op dungeon crawler</span><span data-es>Mazmorra cooperativa</span></h4>
-                <p><span data-en>Camp, exploration, combat and boss music.</span><span data-es>Campamento, exploración, combate y música de jefe.</span></p>
-                <div class="post-foot"><span class="stars" aria-hidden="true">★★★★☆</span><span><span data-en>9 comments</span><span data-es>9 comentarios</span></span>
-                  <button class="dl" type="button"><span class="idle"><span data-en>Download</span><span data-es>Descargar</span></span><span class="done"><span data-en>Saved</span><span data-es>Guardado</span></span></button></div>
-              </div>
-            </div>
-            <div class="tabbar" aria-hidden="true">
-              <span class="tab"><svg><use href="#i-lib"/></svg><span data-en>Library</span><span data-es>Biblioteca</span></span>
-              <span class="tab"><svg><use href="#i-mix"/></svg><span data-en>Mix</span><span data-es>Mezclar</span></span>
-              <span class="tab"><svg><use href="#i-box"/></svg>Bundles</span>
-              <span class="tab on"><svg><use href="#i-globe"/></svg><span data-en>Community</span><span data-es>Comunidad</span></span>
-              <span class="tab"><svg><use href="#i-user"/></svg><span data-en>Me</span><span data-es>Yo</span></span>
-            </div>
-          </div>
-        </div>
-        <p class="mock-note"><span data-en>Illustrative mockup. Users, ratings and comments are examples, not real data.</span><span data-es>Maqueta ilustrativa. Usuarios, calificaciones y comentarios son ejemplos, no datos reales.</span></p>
+        <div class="phone"><img class="shot-img" src="img/community.jpg" width="720" height="1544" loading="lazy" alt="Real screenshot of a shared Cyclades bundle in the Community tab, with its description, rating and a comment box."></div>
+        <p class="mock-note"><span data-en>Real screenshot from the beta (app shown in Spanish).</span><span data-es>Captura real de la beta.</span></p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 5. AUDIENCE -->
+<section id="screens">
+  <div class="wrap">
+    <div class="shots-head">
+      <h2><span data-en>Screenshots</span><span data-es>Capturas de pantalla</span></h2>
+      <p class="lead"><span data-en>Taken from the current beta on a phone, with the app in Spanish. Tap the one in front to see it larger.</span><span data-es>Tomadas de la beta actual en un teléfono. Toca la del frente para verla en grande.</span></p>
+    </div>
+    <div class="cf" id="cf" role="group" aria-roledescription="carousel" data-aria-en="App screenshots" data-aria-es="Capturas de la app">
+      <div class="cf-stage" id="cfStage">
+        <button type="button" class="cf-item" data-cap-en="Sound library with search, category filters and preview" data-cap-es="Biblioteca con búsqueda, filtros por tipo y vista previa"><img src="img/library.jpg" width="720" height="1544" alt="Sound library screen with search, filters for ambience and effects, and sounds grouped by mood such as Conflict and Dread."></button>
+        <button type="button" class="cf-item" data-cap-en="The Heat bundle in the Big pads layout" data-cap-es="El bundle Heat en el diseño Pads grandes"><img src="img/bundle-pads.jpg" width="720" height="1544" alt="The Heat bundle in the big pads layout, with two ambience pads and five effect pads."></button>
+        <button type="button" class="cf-item" data-cap-en="The Cyclades bundle in the Console layout" data-cap-es="El bundle Cyclades en el diseño Consola"><img src="img/bundle-console.jpg" width="720" height="1544" alt="The Cyclades bundle in the console layout, with volume faders for ambience and music and buttons for six effects."></button>
+        <button type="button" class="cf-item" data-cap-en="Mix editor: the Ground Combat timeline" data-cap-es="Editor de mezclas: la línea de tiempo de Ground Combat"><img src="img/mix-editor.jpg" width="720" height="1544" alt="The mix editor showing the Ground Combat mix on a timeline, with fade, speed and loop controls for the selected clip."></button>
+        <button type="button" class="cf-item" data-cap-en="Saved mixes, ready to add to any bundle" data-cap-es="Mezclas guardadas, listas para agregar a cualquier bundle"><img src="img/mix-list.jpg" width="720" height="1544" alt="List of four saved mixes, each with its tracks drawn as bars and a play button."></button>
+      </div>
+      <p class="cf-caption" id="cfCaption" aria-live="polite"></p>
+      <div class="cf-controls">
+        <button class="shots-btn" type="button" data-dir="-1" data-aria-en="Previous screenshot" data-aria-es="Captura anterior"><svg aria-hidden="true"><use href="#i-back"/></svg></button>
+        <div class="cf-dots" id="cfDots"></div>
+        <button class="shots-btn next" type="button" data-dir="1" data-aria-en="Next screenshot" data-aria-es="Captura siguiente"><svg aria-hidden="true"><use href="#i-back"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="shot-dialog" id="shotDialog" data-aria-en="Screenshot" data-aria-es="Captura">
+  <button class="shot-close" type="button" data-aria-en="Close" data-aria-es="Cerrar">&times;</button>
+  <img id="shotBig" src="" alt="">
+  <p id="shotCaption"></p>
+</dialog>
+
 <section id="for">
   <div class="wrap">
-    <div class="section-head">
-      <span class="kicker"><span data-en>Who it's for</span><span data-es>Para quién es</span></span>
-      <h2><span data-en>Board game nights and RPG campaigns</span><span data-es>Noches de juegos de mesa y campañas de rol</span></h2>
-    </div>
-    <div class="aud">
-      <div class="aud-card">
-        <h3><span data-en>Board games</span><span data-es>Juegos de mesa</span></h3>
-        <p><span data-en>Give each game on your shelf its own soundtrack. Put on the bundle when the box opens and let the table do the rest.</span><span data-es>Dale a cada juego de tu estante su propia banda sonora. Pon el bundle al abrir la caja y deja que la mesa haga el resto.</span></p>
-        <div class="ideas">
-          <span class="idea"><span data-en>Haunted house</span><span data-es>Casa embrujada</span></span>
-          <span class="idea"><span data-en>Pirate voyage</span><span data-es>Viaje pirata</span></span>
-          <span class="idea"><span data-en>Space station</span><span data-es>Estación espacial</span></span>
-          <span class="idea"><span data-en>Co-op dungeon crawl</span><span data-es>Mazmorra cooperativa</span></span>
-        </div>
-      </div>
-      <div class="aud-card">
-        <h3><span data-en>Tabletop RPGs</span><span data-es>Juegos de rol</span></h3>
-        <p><span data-en>For GMs running D&amp;D, Pathfinder or any system: a bundle per campaign, a scene per location, and effects ready for the dramatic moment.</span><span data-es>Para directores de juego de D&amp;D, Pathfinder o cualquier sistema: un bundle por campaña, una escena por lugar y efectos listos para el momento dramático.</span></p>
-        <div class="ideas">
-          <span class="idea"><span data-en>Tavern</span><span data-es>Taberna</span></span>
-          <span class="idea"><span data-en>Travel</span><span data-es>Viaje</span></span>
-          <span class="idea"><span data-en>Combat</span><span data-es>Combate</span></span>
-          <span class="idea"><span data-en>Boss fight</span><span data-es>Jefe final</span></span>
-        </div>
-      </div>
-    </div>
-    <p class="fine"><span data-en>Example ideas only. Board Game Soundbox is not affiliated with any game or publisher.</span><span data-es>Solo ideas de ejemplo. Board Game Soundbox no está afiliada a ningún juego ni editorial.</span></p>
+    <h2><span data-en>Bundle examples</span><span data-es>Ejemplos de bundles</span></h2>
+    <p class="lead"><span data-en>Heat and Cyclades are real bundles made in the app. The RPG one is an example built from sounds in the library. Board Game Soundbox isn't affiliated with any game or publisher.</span><span data-es>Heat y Cyclades son bundles reales hechos en la app. El de rol es un ejemplo armado con sonidos de la biblioteca. Board Game Soundbox no está afiliada a ningún juego ni editorial.</span></p>
+    <div class="ex-grid">
+        <div class="ex-col">
+          <span class="ex-tag"><span data-en>Board game · real bundle</span><span data-es>Juego de mesa · bundle real</span></span>
+          <h3>Heat</h3>
+          <div class="ex-split" aria-hidden="true"><i style="flex:2;background:var(--cyan)"></i><i style="flex:0;background:var(--violet)"></i><i style="flex:5;background:var(--orange)"></i></div>
+          <p><span data-en>For the racing game Heat. The track sound runs underneath, and each effect marks a moment of the race: a gear shift, an overtake, a corner taken too fast.</span><span data-es>Para el juego de carreras Heat. El sonido de la pista corre de fondo y cada efecto marca un momento de la carrera: un cambio de marcha, un adelantamiento, una curva tomada demasiado rápido.</span></p>
+          <ul class="ex-sounds">
+            <li class="k-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg>Background</li>
+            <li class="k-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg>Final Lap</li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Too Fast In Corner</li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Gear Shift</li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Overtake</li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Finish Upgrade Draft</li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Ascent Moments</li>
+          </ul>
+        </div>        <div class="ex-col">
+          <span class="ex-tag"><span data-en>Board game · real bundle</span><span data-es>Juego de mesa · bundle real</span></span>
+          <h3>Cyclades</h3>
+          <div class="ex-split" aria-hidden="true"><i style="flex:4;background:var(--cyan)"></i><i style="flex:2;background:var(--violet)"></i><i style="flex:6;background:var(--orange)"></i></div>
+          <p><span data-en>For Cyclades, set in Greek mythology. Waves, forest and an approaching army set each scene, Greek instruments carry the music, and a battle horn opens the fights.</span><span data-es>Para Cyclades, ambientado en la mitología griega. El oleaje, el bosque y un ejército que se acerca arman cada escena, instrumentos griegos ponen la música y un cuerno de batalla abre los combates.</span></p>
+          <ul class="ex-sounds">
+            <li class="k-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg><span data-en>Army</span><span data-es>Ejército</span></li>
+            <li class="k-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg><span data-en>Conflict</span><span data-es>Conflicto</span></li>
+            <li class="k-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg><span data-en>Waves</span><span data-es>Oleaje</span></li>
+            <li class="k-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg><span data-en>Forest</span><span data-es>Bosque</span></li>
+            <li class="k-mus"><svg aria-hidden="true"><use href="#i-note"/></svg>Tzoura</li>
+            <li class="k-mus"><svg aria-hidden="true"><use href="#i-note"/></svg>Salpin</li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Battle horn</span><span data-es>Cuerno de batalla</span></li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Celebration chants</span><span data-es>Cantos de celebración</span></li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Hero Entrance</li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg>Ground Combat</li>
+          </ul>
+        </div>        <div class="ex-col is-example">
+          <span class="ex-tag"><span data-en>Tabletop RPG · example</span><span data-es>Rol · ejemplo</span></span>
+          <h3><span data-en>Dungeon</span><span data-es>Mazmorra</span></h3>
+          <div class="ex-split" aria-hidden="true"><i style="flex:3;background:var(--cyan)"></i><i style="flex:1;background:var(--violet)"></i><i style="flex:5;background:var(--orange)"></i></div>
+          <p><span data-en>An example for a dungeon in D&amp;D or any fantasy RPG, built only from library sounds. Cave and lurking creatures underneath, a cello drone for tension, and effects for the moments the GM wants to land.</span><span data-es>Un ejemplo para una mazmorra de D&amp;D o cualquier rol de fantasía, armado solo con sonidos de la biblioteca. Cueva y criaturas al acecho de fondo, un drone de chelo para la tensión y efectos para los momentos que el director de juego quiere marcar.</span></p>
+          <ul class="ex-sounds">
+            <li class="k-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg><span data-en>Cave</span><span data-es>Cueva</span></li>
+            <li class="k-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg><span data-en>Creaking lurking creatures</span><span data-es>Criaturas al acecho</span></li>
+            <li class="k-amb"><svg aria-hidden="true"><use href="#i-waves"/></svg><span data-en>Tense atmospheric corridors</span><span data-es>Corredores tensos y atmosféricos</span></li>
+            <li class="k-mus"><svg aria-hidden="true"><use href="#i-note"/></svg><span data-en>Ominous Cello Drones</span><span data-es>Drones de Chelo Ominosos</span></li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Trap door</span><span data-es>Trampilla</span></li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Chains Dragging</span><span data-es>Arrastre de Cadenas</span></li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Low Dragon Growl</span><span data-es>Gruñido Grave de Dragón</span></li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Fireball Charging Up</span><span data-es>Cargando Bola de Fuego</span></li>
+            <li class="k-fx"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span data-en>Boot Steps</span><span data-es>Pasos con Botas</span></li>
+          </ul>
+        </div>    </div>
   </div>
 </section>
 
@@ -804,8 +1231,7 @@ footer a:hover { color: var(--text); }
 <section class="alt" id="pricing">
   <div class="wrap">
     <div class="section-head">
-      <span class="kicker"><span data-en>Price</span><span data-es>Precio</span></span>
-      <h2><span data-en>Free to use. Pay once if you don't want ads.</span><span data-es>Gratis. Paga una vez si no quieres anuncios.</span></h2>
+      <h2><span data-en>Free, with a one-time purchase to remove ads</span><span data-es>Gratis, con una compra única para quitar los anuncios</span></h2>
     </div>
     <div class="prices">
       <div class="price">
@@ -834,8 +1260,7 @@ footer a:hover { color: var(--text); }
 <section id="get">
   <div class="wrap">
     <div class="section-head">
-      <span class="kicker"><span data-en>How to get it</span><span data-es>Cómo conseguirla</span></span>
-      <h2><span data-en>Three steps. The first one matters.</span><span data-es>Tres pasos. El primero es clave.</span></h2>
+      <h2><span data-en>How to install the beta</span><span data-es>Cómo instalar la beta</span></h2>
       <p class="lead"><span data-en>The app is in beta, so Google Play only shows it to members of our testers group. If you skip step 1, the Play Store link will say the app isn't available.</span><span data-es>La app está en beta, así que Google Play solo la muestra a los miembros de nuestro grupo de testers. Si te saltas el paso 1, el enlace de Play Store dirá que la app no está disponible.</span></p>
     </div>
     <div class="get-steps">
@@ -866,7 +1291,6 @@ footer a:hover { color: var(--text); }
 <section class="alt" id="faq">
   <div class="wrap">
     <div class="section-head">
-      <span class="kicker"><span data-en>FAQ</span><span data-es>Preguntas frecuentes</span></span>
       <h2><span data-en>Questions before you install</span><span data-es>Dudas antes de instalar</span></h2>
     </div>
     <div class="faq">
@@ -888,7 +1312,7 @@ footer a:hover { color: var(--text); }
       </details>
       <details>
         <summary><span data-en>Can I add my own sounds or music?</span><span data-es>¿Puedo agregar mis propios sonidos o música?</span></summary>
-        <div class="ans"><p><span data-en>No. You can't upload your own audio. You work with the built-in library of ambience, music and effects, which grows with regular updates, and you can combine those sounds into your own mixes and bundles.</span><span data-es>No. No puedes subir tu propio audio. Trabajas con la biblioteca incluida de ambientes, música y efectos, que crece con actualizaciones regulares, y puedes combinar esos sonidos en tus propias mezclas y bundles.</span></p></div>
+        <div class="ans"><p><span data-en>No. You can't upload your own audio. You work with the built-in library of ambience, music and effects, which grows with regular updates, and you can combine those sounds into your own mixes and bundles. If a sound you need is missing, you can request it from the library.</span><span data-es>No. No puedes subir tu propio audio. Trabajas con la biblioteca incluida de ambientes, música y efectos, que crece con actualizaciones regulares, y puedes combinar esos sonidos en tus propias mezclas y bundles. Si falta un sonido que necesitas, puedes pedirlo desde la biblioteca.</span></p></div>
       </details>
       <details>
         <summary><span data-en>Do I need an account?</span><span data-es>¿Necesito una cuenta?</span></summary>
@@ -909,18 +1333,11 @@ footer a:hover { color: var(--text); }
 <!-- 9. FINAL CTA -->
 <section class="final">
   <div class="wrap">
-    <h2><span data-en>Give your next game night a soundtrack</span><span data-es>Ponle banda sonora a tu próxima partida</span></h2>
-    <p class="lead"><span data-en>Free on Android, in beta. Join the testers group first, then install.</span><span data-es>Gratis en Android, en beta. Primero únete al grupo de testers y luego instálala.</span></p>
-    <div class="beta-actions">
-      <button class="btn btn-primary" type="button" data-open-beta>
-        <span class="step-tag"><span data-en>Step 1</span><span data-es>Paso 1</span></span>
-        <span data-en>Join the beta</span><span data-es>Unirme a la beta</span>
-      </button>
-      <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=cl.sandaur.boardgamesoundbox" target="_blank" rel="noopener">
-        <span class="step-tag"><span data-en>Step 2</span><span data-es>Paso 2</span></span>
-        <span data-en>Install</span><span data-es>Instalar</span>
-        <span class="sr-only"><span data-en>(opens Google Play in a new tab)</span><span data-es>(abre Google Play en una pestaña nueva)</span></span>
-      </a>
+    <h2><span data-en>Tell us how it goes</span><span data-es>Cuéntanos cómo te va</span></h2>
+    <p class="lead"><span data-en>This is a beta. If something breaks at your table or a sound you need is missing, say so in the testers group or write to the support address. You can also request sounds from the library inside the app.</span><span data-es>Esto es una beta. Si algo falla en tu mesa o falta un sonido que necesitas, cuéntalo en el grupo de testers o escribe al correo de soporte. También puedes pedir sonidos desde la biblioteca de la app.</span></p>
+    <div class="fb-links">
+      <a class="btn btn-ghost" href="https://groups.google.com/g/bg-soundbox-testers" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-group"/></svg><span data-en>Open the testers group</span><span data-es>Abrir el grupo de testers</span><span class="sr-only"><span data-en>(opens in a new tab)</span><span data-es>(abre en una pestaña nueva)</span></span></a>
+      <a class="fb-mail" href="mailto:sandaur.support@gmail.com">sandaur.support@gmail.com</a>
     </div>
   </div>
 </section>
@@ -1031,68 +1448,563 @@ footer a:hover { color: var(--text); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   });
-
-  /* ---------- Hero mockup: scenes, pads, stop all ---------- */
-  var scenes = document.querySelectorAll('[data-scenes="hero"] .scene');
-  var now = document.querySelector('[data-now="hero"]');
-  var nowName = now.querySelector('.np-name');
-  var nowLabel = now.querySelector('.np-label');
-  var idleHTML = '<span data-en>Nothing playing</span><span data-es>Nada sonando</span>';
-  var playingLabelHTML = nowLabel.innerHTML;
-
-  function setPlaying(btn) {
-    for (var i = 0; i < scenes.length; i++) {
-      scenes[i].setAttribute('aria-pressed', scenes[i] === btn ? 'true' : 'false');
-    }
-    if (btn) {
-      nowLabel.innerHTML = playingLabelHTML;
-      nowName.innerHTML = btn.querySelector('.scene-name').innerHTML;
-      now.classList.remove('idle');
-    } else {
-      nowLabel.innerHTML = idleHTML;
-      nowName.innerHTML = '';
-      now.classList.add('idle');
-    }
-  }
-  for (var s = 0; s < scenes.length; s++) {
-    scenes[s].addEventListener('click', function () {
-      setPlaying(this.getAttribute('aria-pressed') === 'true' ? null : this);
+})();
+</script>
+<script>
+(function () {
+  'use strict';
+  var demo = document.getElementById('bundleDemo');
+  if (!demo) { return; }
+  var chans = Array.prototype.slice.call(demo.querySelectorAll('.ch'));
+  function pressed(el) { return el.getAttribute('aria-pressed') === 'true'; }
+  function refresh() {
+    var anySolo = chans.some(function (ch) { return pressed(ch.querySelector('[data-solo]')); });
+    chans.forEach(function (ch) {
+      var muted = pressed(ch.querySelector('[data-mute]'));
+      var solo = pressed(ch.querySelector('[data-solo]'));
+      ch.classList.toggle('dim', muted || (anySolo && !solo));
     });
   }
-  document.querySelector('[data-stop-all="hero"]').addEventListener('click', function () { setPlaying(null); });
-
-  var pads = document.querySelectorAll('.pad');
-  for (var p = 0; p < pads.length; p++) {
-    pads[p].addEventListener('click', function () {
-      var pad = this;
+  chans.forEach(function (ch) {
+    var input = ch.querySelector('input');
+    var fill = ch.querySelector('.fill');
+    var val = ch.querySelector('.ch-val');
+    function update() { fill.style.height = input.value + '%'; val.textContent = input.value; }
+    input.addEventListener('input', update);
+    update();
+    Array.prototype.forEach.call(ch.querySelectorAll('button[aria-pressed]'), function (btn) {
+      btn.addEventListener('click', function () {
+        btn.setAttribute('aria-pressed', pressed(btn) ? 'false' : 'true');
+        refresh();
+      });
+    });
+  });
+  Array.prototype.forEach.call(demo.querySelectorAll('.fx'), function (pad) {
+    pad.addEventListener('click', function () {
       pad.classList.add('fired');
       setTimeout(function () { pad.classList.remove('fired'); }, 450);
     });
+  });
+  refresh();
+})();
+</script>
+<script>
+(function () {
+  'use strict';
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+  function bi(en, es) { return '<span data-en>' + en + '</span><span data-es>' + es + '</span>'; }
+
+  /* Hero: big pads */
+  var pads = document.getElementById('heroPads');
+  if (pads) {
+    each(pads.querySelectorAll('.bp.amb'), function (pad) {
+      pad.addEventListener('click', function () {
+        pad.setAttribute('aria-pressed', pad.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      });
+    });
+    each(pads.querySelectorAll('.bp.fx'), function (pad) {
+      var badge = pad.querySelector('.bp-badge');
+      var voices = 0;
+      function render() {
+        pad.classList.toggle('firing', voices > 0);
+        badge.hidden = voices === 0;
+        badge.textContent = String(voices);
+      }
+      pad.addEventListener('click', function () {
+        voices += 1;
+        render();
+        setTimeout(function () { voices -= 1; render(); }, 1400);
+      });
+    });
   }
 
-  /* ---------- Mixer mockup ---------- */
-  function formatPan(v) {
-    if (v === 0) { return 'C'; }
-    return (v < 0 ? 'L' : 'R') + Math.abs(v);
-  }
-  var sliders = document.querySelectorAll('input[type=range][data-fmt]');
-  for (var r = 0; r < sliders.length; r++) {
-    sliders[r].addEventListener('input', function () {
-      var v = parseInt(this.value, 10);
-      var out = this.parentNode.querySelector('output');
-      out.textContent = this.getAttribute('data-fmt') === 'pan' ? formatPan(v) : String(v);
+  /* Bundle details: per-sound preview buttons */
+  var detail = document.getElementById('bundleDetail');
+  if (detail) {
+    each(detail.querySelectorAll('.bd-rowplay'), function (btn) {
+      var isFx = btn.parentNode.classList.contains('fx');
+      var timer = null;
+      btn.addEventListener('click', function () {
+        var on = btn.getAttribute('aria-pressed') !== 'true';
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        clearTimeout(timer);
+        if (on && isFx) { timer = setTimeout(function () { btn.setAttribute('aria-pressed', 'false'); }, 1400); }
+      });
     });
   }
-  var toggles = document.querySelectorAll('.loop, .dl');
-  for (var t = 0; t < toggles.length; t++) {
-    toggles[t].addEventListener('click', function () {
-      if (this.classList.contains('dl')) {
-        this.classList.toggle('is-done');
-      } else {
-        this.setAttribute('aria-pressed', this.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+
+  /* Mix editor */
+  var mix = document.getElementById('mixDemo');
+  if (mix) {
+    var SPEEDS = [0.5, 0.6, 0.75, 0.9, 1, 1.1, 1.25, 1.5, 2];
+    var LIMITS = { fadein: [0, 20], fadeout: [0, 20], speed: [0, SPEEDS.length - 1], loops: [1, 9], random: [0, 9] };
+    var clips = mix.querySelectorAll('.clip');
+    var selected = mix.querySelector('.clip.selected');
+    var cpIco = document.getElementById('cpIco');
+
+    function format(key, n) {
+      if (key === 'fadein' || key === 'fadeout') { return (n / 10).toFixed(1) + ' s'; }
+      if (key === 'speed') { return '&times;' + SPEEDS[n].toFixed(2); }
+      if (key === 'random') { return n === 0 ? bi('Off', 'Apagado') : String(n); }
+      return String(n);
+    }
+    function renderPanel() {
+      var d = selected.dataset;
+      var kindEn = d.kind === 'amb' ? 'Ambience' : 'Effects';
+      var kindEs = d.kind === 'amb' ? 'Ambiente' : 'Efectos';
+      var clipsWord = d.clips === '1' ? 'clip' : 'clips';
+      document.getElementById('cpName').innerHTML = bi(d.nameEn, d.nameEs);
+      document.getElementById('cpKind').innerHTML = bi(kindEn + ', ' + d.clips + ' ' + clipsWord, kindEs + ', ' + d.clips + ' ' + clipsWord);
+      cpIco.classList.toggle('fx', d.kind === 'fx');
+      cpIco.querySelector('use').setAttribute('href', d.kind === 'amb' ? '#i-waves' : '#i-bolt');
+      each(mix.querySelectorAll('.stepper'), function (st) {
+        var key = st.getAttribute('data-key');
+        st.querySelector('.st-val').innerHTML = format(key, parseInt(d[key], 10));
+      });
+    }
+    each(clips, function (clip) {
+      clip.setAttribute('aria-label', clip.getAttribute('data-name-en'));
+      clip.addEventListener('click', function () {
+        selected.classList.remove('selected');
+        selected = clip;
+        clip.classList.add('selected');
+        renderPanel();
+      });
+    });
+    each(mix.querySelectorAll('.stepper button'), function (btn) {
+      btn.addEventListener('click', function () {
+        var key = btn.parentNode.getAttribute('data-key');
+        var lim = LIMITS[key];
+        var n = parseInt(selected.dataset[key], 10) + parseInt(btn.getAttribute('data-step'), 10);
+        selected.dataset[key] = String(Math.max(lim[0], Math.min(lim[1], n)));
+        renderPanel();
+      });
+    });
+    renderPanel();
+
+    var DURATION = 4000;
+    var playBtn = document.getElementById('tlPlay');
+    var head = document.getElementById('playhead');
+    var timeEl = document.getElementById('tlTime');
+    var start = 0;
+    var raf = 0;
+    function setPos(p) {
+      head.style.left = (p * 100) + '%';
+      timeEl.textContent = '0:0' + (p * DURATION / 1000).toFixed(1);
+      each(clips, function (clip) {
+        var pct = p * 100;
+        clip.classList.toggle('hit', pct >= +clip.getAttribute('data-start') && pct <= +clip.getAttribute('data-end'));
+      });
+    }
+    function stop() {
+      cancelAnimationFrame(raf);
+      playBtn.classList.remove('on');
+      setPos(0);
+    }
+    function tick(now) {
+      var p = (now - start) / DURATION;
+      if (p >= 1) { stop(); return; }
+      setPos(p);
+      raf = requestAnimationFrame(tick);
+    }
+    playBtn.addEventListener('click', function () {
+      if (playBtn.classList.contains('on')) { stop(); return; }
+      playBtn.classList.add('on');
+      start = performance.now();
+      raf = requestAnimationFrame(tick);
+    });
+  }
+})();
+</script>
+<script>
+(function () {
+  'use strict';
+  var phone = document.getElementById('heroPhone');
+  if (!phone) { return; }
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+  function pressed(el) { return el.getAttribute('aria-pressed') === 'true'; }
+  function bi(en, es) { return '<span data-en>' + en + '</span><span data-es>' + es + '</span>'; }
+  function wireEffectPad(pad) {
+    var badge = pad.querySelector('.bp-badge');
+    var voices = 0;
+    function render() { pad.classList.toggle('firing', voices > 0); badge.hidden = voices === 0; badge.textContent = String(voices); }
+    pad.addEventListener('click', function () { voices += 1; render(); setTimeout(function () { voices -= 1; render(); }, 1400); });
+  }
+
+  /* ---------- Picker + carousel ---------- */
+  var picker = document.querySelector('.layout-picker');
+  var tabs = picker.querySelectorAll('.lp-tab');
+  var panels = phone.querySelectorAll('[data-layout]');
+  var titleEl = phone.querySelector('.app-top .title');
+  var bar = picker.querySelector('.lp-progress i');
+  var pauseBtn = picker.querySelector('.lp-pause');
+  var order = Array.prototype.map.call(tabs, function (t) { return t.getAttribute('data-target'); });
+  var current = order[0];
+
+  var finishSlide = null;
+  function panelFor(name) { return phone.querySelector('[data-layout="' + name + '"]'); }
+  function show(name, dir) {
+    if (name === current) { return; }
+    if (finishSlide) { finishSlide(); }
+    var from = panelFor(current);
+    var to = panelFor(name);
+    var forward = dir ? dir > 0 : order.indexOf(name) > order.indexOf(current);
+    current = name;
+    each(tabs, function (t) {
+      var on = t.getAttribute('data-target') === name;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    titleEl.textContent = to.getAttribute('data-title') || 'Heat';
+    if (reduced || !to.animate) { from.hidden = true; to.hidden = false; return; }
+    // The outgoing panel is lifted out of the flow so both can share the screen while they slide.
+    from.style.cssText = 'position:absolute;left:0;width:100%;top:' + from.offsetTop + 'px;height:' + from.offsetHeight + 'px';
+    to.hidden = false;
+    var timing = { duration: 460, easing: 'cubic-bezier(.22,.61,.36,1)' };
+    var out = from.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(' + (forward ? '-100%' : '100%') + ')' }], timing);
+    var inn = to.animate([{ transform: 'translateX(' + (forward ? '100%' : '-100%') + ')' }, { transform: 'translateX(0)' }], timing);
+    var safety = 0;
+    var finish = function () {
+      clearTimeout(safety);
+      out.cancel();
+      inn.cancel();
+      from.hidden = true;
+      from.style.cssText = '';
+      if (finishSlide === finish) { finishSlide = null; }
+    };
+    finishSlide = finish;
+    inn.onfinish = function () { if (finishSlide === finish) { finish(); } };
+    safety = setTimeout(function () { if (finishSlide === finish) { finish(); } }, timing.duration + 80);
+  }
+
+  var INTERVAL = 4500;
+
+  var elapsed = 0;
+  var stopped = false;
+  var hovering = false;
+  var focused = false;
+  var visible = true;
+  var holdUntil = 0;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setStopped(value) {
+    stopped = value;
+    pauseBtn.classList.toggle('paused', stopped);
+    pauseBtn.setAttribute('aria-pressed', stopped ? 'true' : 'false');
+    if (stopped) { elapsed = 0; }
+  }
+  function running() {
+    return !stopped && !hovering && !focused && visible && !document.hidden && Date.now() > holdUntil;
+  }
+  var last = 0;
+  function frame(now) {
+    var dt = last ? Math.min(now - last, 100) : 0;
+    last = now;
+    if (running()) {
+      elapsed += dt;
+      if (elapsed >= INTERVAL) {
+        elapsed = 0;
+        show(order[(order.indexOf(current) + 1) % order.length], 1);
+      }
+    }
+    bar.style.transform = 'scaleX(' + (elapsed / INTERVAL) + ')';
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  each(tabs, function (t, i) {
+    t.addEventListener('click', function () { show(t.getAttribute('data-target')); setStopped(true); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') { return; }
+      e.preventDefault();
+      var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      next.focus();
+      show(next.getAttribute('data-target'), e.key === 'ArrowRight' ? 1 : -1);
+      setStopped(true);
+    });
+  });
+  pauseBtn.addEventListener('click', function () { setStopped(!stopped); });
+  [picker, phone].forEach(function (el) {
+    el.addEventListener('mouseenter', function () { hovering = true; });
+    el.addEventListener('mouseleave', function () { hovering = false; });
+    el.addEventListener('focusin', function (e) { if (e.target !== pauseBtn) { focused = true; } });
+    el.addEventListener('focusout', function () { focused = false; });
+  });
+  // Touch has no hover: hold the current layout for a while after the visitor taps inside the phone.
+  phone.addEventListener('pointerdown', function () { holdUntil = Date.now() + 8000; });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; }).observe(phone);
+  }
+  setStopped(reduced);
+
+  /* ---------- Compact ---------- */
+  each(phone.querySelectorAll('.bed'), function (bed) {
+    var isFx = bed.classList.contains('fx');
+    bed.addEventListener('click', function () {
+      if (isFx) {
+        bed.classList.add('on');
+        setTimeout(function () { bed.classList.remove('on'); }, 900);
+        return;
+      }
+      var on = !pressed(bed);
+      bed.setAttribute('aria-pressed', on ? 'true' : 'false');
+      bed.classList.toggle('on', on);
+    });
+  });
+
+  /* ---------- List ---------- */
+  each(phone.querySelectorAll('.lp-list .bd-rowplay'), function (btn) {
+    var row = btn.parentNode;
+    var isFx = row.classList.contains('fx');
+    var timer = null;
+    btn.addEventListener('click', function () {
+      var on = !pressed(btn);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      row.classList.toggle('sounding', on);
+      clearTimeout(timer);
+      if (on && isFx) {
+        timer = setTimeout(function () { btn.setAttribute('aria-pressed', 'false'); row.classList.remove('sounding'); }, 1400);
       }
     });
+  });
+
+  /* ---------- Grouped ---------- */
+  var grouped = phone.querySelector('.lp-grouped');
+  each(grouped.querySelectorAll('.bp.amb'), function (pad) {
+    pad.addEventListener('click', function () { pad.setAttribute('aria-pressed', pressed(pad) ? 'false' : 'true'); });
+  });
+  each(grouped.querySelectorAll('.bp.fx'), wireEffectPad);
+
+  /* ---------- Console ---------- */
+  var chans = Array.prototype.slice.call(phone.querySelectorAll('.lp-console .ch'));
+  function refresh() {
+    var anySolo = chans.some(function (ch) { return pressed(ch.querySelector('[data-solo]')); });
+    chans.forEach(function (ch) {
+      ch.classList.toggle('dim', pressed(ch.querySelector('[data-mute]')) || (anySolo && !pressed(ch.querySelector('[data-solo]'))));
+    });
   }
+  chans.forEach(function (ch) {
+    var input = ch.querySelector('input');
+    var fill = ch.querySelector('.fill');
+    var val = ch.querySelector('.ch-val');
+    function update() { fill.style.height = input.value + '%'; val.textContent = input.value; }
+    input.addEventListener('input', update);
+    update();
+    each(ch.querySelectorAll('button[aria-pressed]'), function (b) {
+      b.addEventListener('click', function () { b.setAttribute('aria-pressed', pressed(b) ? 'false' : 'true'); refresh(); });
+    });
+  });
+  each(phone.querySelectorAll('.lp-console .fx'), function (pad) {
+    pad.addEventListener('click', function () {
+      pad.classList.add('fired');
+      setTimeout(function () { pad.classList.remove('fired'); }, 450);
+    });
+  });
+
+  /* ---------- Hex map (example rooms, sounds from the Cyclades bundle) ---------- */
+  var TERRAIN = { stone: '#607080', water: '#1A6B8A', forest: '#2A6040', cave: '#5A4080', ruin: '#804030', camp: '#706030' };
+  var SOUNDS = {
+    waves: ['Waves', 'Oleaje'], forest: ['Forest', 'Bosque'], conflict: ['Conflict', 'Conflicto'], army: ['Army', 'Ejército'],
+    salpin: ['Salpin', 'Salpin'], tzoura: ['Tzoura', 'Tzoura'],
+    income: ['Income', 'Income'], chants: ['Celebration chants', 'Cantos de celebración'], hero: ['Hero Entrance', 'Hero Entrance'],
+    creature: ['Creature Invocation', 'Creature Invocation'], horn: ['Battle horn', 'Cuerno de batalla'], combat: ['Ground Combat', 'Ground Combat']
+  };
+  var ROOMS = [
+    { en: 'Harbor', es: 'Puerto', t: 'water', r: 0, c: 0, on: true, amb: ['waves'], mus: ['salpin'], fx: ['income'] },
+    { en: 'Temple', es: 'Templo', t: 'stone', r: 0, c: 1, mus: ['tzoura'], fx: ['chants'] },
+    { en: 'Sacred grove', es: 'Bosque sagrado', t: 'forest', r: 0, c: 2, amb: ['forest'] },
+    { en: 'Open sea', es: 'Mar abierto', t: 'water', r: 1, c: 0, on: true, amb: ['waves'], fx: ['hero'] },
+    { en: 'Cave', es: 'Cueva', t: 'cave', r: 1, c: 1, amb: ['conflict'], fx: ['creature'] },
+    { en: 'Ruins', es: 'Ruinas', t: 'ruin', r: 1, c: 2, amb: ['conflict'] },
+    { en: 'Camp', es: 'Campamento', t: 'camp', r: 2, c: 0, amb: ['army'], fx: ['horn', 'combat'] },
+    { en: 'Cliffs', es: 'Acantilado', t: 'stone', r: 2, c: 1, amb: ['waves'] }
+  ];
+  var COL = 78, ROW = 62, H = 83;
+  var grid = document.getElementById('hxGrid');
+  var strip = document.getElementById('hxStrip');
+  var fxBox = document.getElementById('hxFx');
+  var fxRow = document.getElementById('hxFxRow');
+
+  function collect(key) {
+    var seen = [];
+    ROOMS.forEach(function (room) {
+      if (!room.on) { return; }
+      (room[key] || []).forEach(function (s) { if (seen.indexOf(s) < 0) { seen.push(s); } });
+    });
+    return seen;
+  }
+  function chips(list) {
+    return list.map(function (s) { return '<span>' + bi(SOUNDS[s][0], SOUNDS[s][1]) + '</span>'; }).join('');
+  }
+  function renderSounds() {
+    var amb = collect('amb'), mus = collect('mus'), fx = collect('fx');
+    if (!amb.length && !mus.length) {
+      strip.innerHTML = '<span class="empty">' + bi('Tap a hex to activate its sounds.', 'Toca un hexágono para activar sus sonidos.') + '</span>';
+    } else {
+      strip.innerHTML =
+        (amb.length ? '<div class="hx-row"><b>' + bi('AMBIENCE', 'AMBIENTE') + '</b><div class="chips">' + chips(amb) + '</div></div>' : '') +
+        (mus.length ? '<div class="hx-row mus"><b>' + bi('MUSIC', 'MÚSICA') + '</b><div class="chips">' + chips(mus) + '</div></div>' : '');
+    }
+    fxBox.hidden = fx.length === 0;
+    fxRow.innerHTML = fx.map(function (s) {
+      return '<button class="bp fx" type="button"><span class="bp-tile"><svg class="bp-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span class="bp-badge" hidden></span></span><span class="bp-name">' + bi(SOUNDS[s][0], SOUNDS[s][1]) + '</span></button>';
+    }).join('');
+    each(fxRow.querySelectorAll('.bp.fx'), wireEffectPad);
+  }
+
+  ROOMS.forEach(function (room) {
+    room.lvl = 80;
+    var hex = document.createElement('button');
+    hex.type = 'button';
+    hex.className = 'hex';
+    hex.style.left = (room.c * COL + (room.r % 2 === 1 ? COL / 2 : 0)) + 'px';
+    hex.style.top = (room.r * ROW) + 'px';
+    hex.style.setProperty('--t', TERRAIN[room.t]);
+    hex.setAttribute('aria-pressed', room.on ? 'true' : 'false');
+    hex.setAttribute('data-aria-en', room.en + ', ' + room.t + '. Arrow keys change the level.');
+    hex.setAttribute('data-aria-es', room.es + ', ' + room.t + '. Las flechas cambian el nivel.');
+    hex.setAttribute('aria-label', room[document.documentElement.lang === 'es' ? 'es' : 'en'] + ', ' + room.t);
+    hex.innerHTML = '<span class="hex-ring"></span><span class="hex-inner"><span class="hex-fill"></span></span>' +
+      '<span class="hex-txt"><b>' + bi(room.en, room.es) + '</b><small>' + room.t + '</small></span><span class="hex-lvl"></span>';
+    var fill = hex.querySelector('.hex-fill');
+    var lvlEl = hex.querySelector('.hex-lvl');
+    function paintLevel() { fill.style.height = room.lvl + '%'; lvlEl.textContent = String(Math.round(room.lvl)); }
+    paintLevel();
+
+    var startY = 0, startLvl = 0, dragging = false, down = false, suppress = false;
+    hex.addEventListener('pointerdown', function (e) {
+      down = true; dragging = false; startY = e.clientY; startLvl = room.lvl;
+      hex.setPointerCapture(e.pointerId);
+    });
+    hex.addEventListener('pointermove', function (e) {
+      if (!down) { return; }
+      var dy = e.clientY - startY;
+      if (!dragging && Math.abs(dy) > 8) { dragging = true; }
+      if (dragging) { room.lvl = Math.max(0, Math.min(100, startLvl - dy / H * 100)); paintLevel(); }
+    });
+    hex.addEventListener('pointerup', function () { down = false; suppress = dragging; });
+    hex.addEventListener('pointercancel', function () { down = false; });
+    hex.addEventListener('click', function () {
+      if (suppress) { suppress = false; return; }
+      room.on = !room.on;
+      hex.setAttribute('aria-pressed', room.on ? 'true' : 'false');
+      renderSounds();
+    });
+    hex.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') { return; }
+      e.preventDefault();
+      room.lvl = Math.max(0, Math.min(100, room.lvl + (e.key === 'ArrowUp' ? 5 : -5)));
+      paintLevel();
+    });
+    grid.appendChild(hex);
+  });
+  renderSounds();
+
+  each(phone.querySelectorAll('.hx-chips.threat button'), function (b, i, all) {
+    b.addEventListener('click', function () {
+      each(phone.querySelectorAll('.hx-chips.threat button'), function (o) {
+        o.classList.toggle('sel', o === b);
+        o.setAttribute('aria-pressed', o === b ? 'true' : 'false');
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function () {
+  'use strict';
+  var cf = document.getElementById('cf');
+  var dialog = document.getElementById('shotDialog');
+  if (!cf || !dialog) { return; }
+  var items = Array.prototype.slice.call(cf.querySelectorAll('.cf-item'));
+  var caption = document.getElementById('cfCaption');
+  var dotsBox = document.getElementById('cfDots');
+  var stage = document.getElementById('cfStage');
+  var n = items.length;
+  var current = 0;
+  // Position, depth and fade for each distance from the front; anything farther is hidden.
+  var SLOTS = {
+    0: { x: 0, z: 0, ry: 0, s: 1, o: 1, b: 1 },
+    1: { x: 72, z: -160, ry: -28, s: 0.84, o: 0.6, b: 0.6 },
+    2: { x: 128, z: -320, ry: -36, s: 0.68, o: 0.25, b: 0.4 }
+  };
+
+  function bi(el, key) { return '<span data-en>' + el.getAttribute('data-cap-en') + '</span><span data-es>' + el.getAttribute('data-cap-es') + '</span>'; }
+
+  var dots = items.map(function (item, i) {
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('data-aria-en', 'Screenshot ' + (i + 1));
+    dot.setAttribute('data-aria-es', 'Captura ' + (i + 1));
+    dot.setAttribute('aria-label', (document.documentElement.lang === 'es' ? 'Captura ' : 'Screenshot ') + (i + 1));
+    dot.addEventListener('click', function () { go(i); });
+    dotsBox.appendChild(dot);
+    return dot;
+  });
+
+  function render() {
+    items.forEach(function (item, i) {
+      var d = i - current;
+      if (d > n / 2) { d -= n; }
+      if (d < -n / 2) { d += n; }
+      var slot = SLOTS[Math.abs(d)];
+      var side = d < 0 ? -1 : 1;
+      if (slot) {
+        item.style.transform = 'translateX(' + (slot.x * side) + '%) translateZ(' + slot.z + 'px) rotateY(' + (slot.ry * side) + 'deg) scale(' + slot.s + ')';
+        item.style.opacity = slot.o;
+        item.style.filter = 'brightness(' + slot.b + ')';
+        item.style.visibility = 'visible';
+      } else {
+        item.style.transform = 'translateX(' + (180 * side) + '%) translateZ(-480px) scale(0.5)';
+        item.style.opacity = 0;
+        item.style.visibility = 'hidden';
+      }
+      item.style.zIndex = String(10 - Math.abs(d));
+      item.classList.toggle('is-center', d === 0);
+      item.tabIndex = d === 0 ? 0 : -1;
+      item.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+    });
+    dots.forEach(function (dot, i) { dot.setAttribute('aria-current', i === current ? 'true' : 'false'); });
+    caption.innerHTML = bi(items[current]);
+  }
+  function go(i) { current = (i + n) % n; render(); }
+
+  items.forEach(function (item, i) {
+    item.addEventListener('click', function () {
+      if (dragged) { dragged = false; return; }
+      if (i !== current) { go(i); return; }
+      var img = item.querySelector('img');
+      document.getElementById('shotBig').src = img.src;
+      document.getElementById('shotBig').alt = img.alt;
+      document.getElementById('shotCaption').innerHTML = bi(item);
+      if (typeof dialog.showModal === 'function') { dialog.showModal(); } else { dialog.setAttribute('open', ''); }
+    });
+  });
+  Array.prototype.forEach.call(cf.querySelectorAll('.shots-btn'), function (btn) {
+    btn.addEventListener('click', function () { go(current + parseInt(btn.getAttribute('data-dir'), 10)); });
+  });
+  cf.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); items[current].focus({ preventScroll: true }); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); items[current].focus({ preventScroll: true }); }
+  });
+
+  // Swipe on touch screens; a drag shorter than 40px still counts as a tap.
+  var startX = null;
+  var dragged = false;
+  stage.addEventListener('pointerdown', function (e) { startX = e.clientX; dragged = false; });
+  stage.addEventListener('pointerup', function (e) {
+    if (startX === null) { return; }
+    var dx = e.clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 40) { dragged = true; go(current + (dx < 0 ? 1 : -1)); }
+  });
+
+  function close() { if (dialog.open) { if (dialog.close) { dialog.close(); } else { dialog.removeAttribute('open'); } } }
+  dialog.querySelector('.shot-close').addEventListener('click', close);
+  dialog.addEventListener('click', function (e) { if (e.target === dialog) { close(); } });
+
+  render();
+  requestAnimationFrame(function () { requestAnimationFrame(function () { cf.classList.add('ready'); }); });
 })();
 </script>
 </body>
